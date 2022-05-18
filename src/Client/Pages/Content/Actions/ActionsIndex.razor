@@ -1,0 +1,196 @@
+﻿@page "/actions-index"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ActionsIndex> _localizer
+
+@if (!_loaded)
+{
+    <Spinner></Spinner>
+}
+else
+{
+<MudPaper Elevation="3" Height="150" Class="px-4 mx-n4 mt-n10 pt-10 mud-theme-primary" Style="border-radius: 0px 0px 35px 35px;" Outlined="false">
+    <MudPaper Elevation="0" Class="py-6" Style="background-color: transparent">
+
+    </MudPaper>
+</MudPaper>
+
+<MudGrid Class="mt-n15 pt-0 mb-1">
+    <MudItem xs="12">
+        <MudCard Elevation="25" Class="rounded-xl">
+            <MudCardContent>
+                <MudText Color="Color.Default" Align="Align.Left" Typo="Typo.body2" Style="font-weight: 400;">Actions are elements that appear from the bottom of page. They can be triggered by any elements, buttons, texts, images...</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+<MudCard Elevation="25" Class="rounded-xl mb-5">
+    <MudCardContent>
+        <MudGrid Spacing="0">
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionInstall())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-mobile-alt" Color="Color.Primary" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Add to Home screen </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionCall())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-phone-alt" Color="Color.Success" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Call Button </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionConfirmation())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-info-circle" Color="Color.Info" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Confirmation </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionMaps())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-map" Color="Color.Error" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Google Maps </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionLanguages())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-language" Color="Color.Primary" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Languages </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionShareLists())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-share-alt" Color="Color.Tertiary" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Share Lists </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionShareGrid())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-share-alt-square" Color="Color.Secondary" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Share Grid </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionSuccessBox())">
+                    <div class="d-flex">
+                        <MudIcon Icon="far fa-check-circle" Color="Color.Success" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Success Box </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionSuccessBoxBackground())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-check-circle" Color="Color.Success" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Success Box Background </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionVideoEmbedded())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fab fa-youtube" Color="Color.Error" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Video Embedded </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionWarningBox())">
+                    <div class="d-flex">
+                        <MudIcon Icon="far fa-times-circle" Color="Color.Error" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Warning Box </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudDivider></MudDivider>
+            </MudItem>
+
+            <MudItem xs="12" sm="12" md="12">
+                <MudCard Elevation="0" Class="d-flex justify-space-between " Style="background-color: transparent" @onclick="@(() => OnActionWarningBoxBackground())">
+                    <div class="d-flex">
+                        <MudIcon Icon="fas fa-times-circle" Color="Color.Error" Class="mx-0 my-5 align-self-center" Size="Size.Small"></MudIcon>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight: 500;" Class="mx-5 align-self-center" Color="@Color.Default"> Warning Box Background </MudText>
+                    </div>
+                    <MudIcon Icon="fal fa-angle-right" Color="Color.Default" Class="align-self-center" Size="Size.Small"></MudIcon>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+}

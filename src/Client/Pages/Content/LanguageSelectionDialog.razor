@@ -1,0 +1,28 @@
+﻿@inject Microsoft.Extensions.Localization.IStringLocalizer<LanguageSelectionDialog> _localizer
+@using MinhasNoticias.Shared.Constants.Localization
+
+<MudDialog Class="ma-3 py-3 rounded-xl">
+    <DialogContent>
+        <MudPaper Elevation="0" Class="d-flex flex-column gap-3">
+            <MudText Typo="Typo.h5" Color="Color.Default" Style="font-weight: 600"> Select your language </MudText>
+            <MudText Typo="Typo.caption" Class=""> You can direct to multiple languages of your page. </MudText>
+        </MudPaper>
+        <MudList Class="mt-5" Clickable="true" @bind-SelectedItem="SelectedItem" @bind-SelectedValue="currentLanguageCode">
+            @*<MudListItem>
+                    <MudPaper Elevation="0" Class="pa-0 d-flex flex-row">
+                        <MudCardMedia Image="/images/flag/en-flag.png" Style="height:30px;" Class="align-self-center"> </MudCardMedia>
+                        <MudText Typo="Typo.body1" Color="Color.Default" Class="align-self-center">English</MudText>
+                    </MudPaper>
+                </MudListItem>*@
+            @*Class="@((string)item.Code == currentLanguageCode ? selectClassName : "")"*@
+            @foreach (var item in LocalizationConstants.SupportedLanguages)
+            {
+                <MudListItem Icon="@(item.FlagIcon)" IconSize="Size.Small" Text="@(item.DisplayName)" Value="@(item.Code)" />
+            }
+        </MudList>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Success" Variant="Variant.Filled" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>

@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Favicon and title -->
+    <link rel="icon" href="img/bs-logo.svg">
+    <title>BlazorStore template</title>
+
+    <!-- Halfmoon CSS -->
+    <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
+    <!--
+      Or,
+      Use the following (no variables, supports IE11):
+      <link href="css/halfmoon.min.css" rel="stylesheet" />
+    -->
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Roboto font (Used when Apple system fonts are not available) -->
+    <link href="css/css2" rel="stylesheet">
+    <!-- Highlight js theme -->
+    <link href="css/halfmoon-highlight-js-theme.css" rel="stylesheet">
+    <!-- Documentation styles -->
+    <link href="css/default.min.css" rel="stylesheet">  
+    <link href="css/documentation-styles-4.css" rel="stylesheet">
+  </head>
+  <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-theme-onload="true">
+    <!-- Documentation section id (hidden) -->
+    <input type="hidden" name="docs-section-id" id="docs-section-id" value="download">
+    
+    <!-- Modals go here -->
+    <!-- Reference: https://www.gethalfmoon.com/docs/modal -->
+
+    <!-- Page wrapper start -->
+    <div class="page-wrapper with-navbar with-sidebar with-transitions" data-sidebar-type="overlayed-sm-and-down">
+      
+      <!-- Sticky alerts (toasts), empty container -->
+      <!-- Reference: https://www.gethalfmoon.com/docs/sticky-alerts-toasts -->
+      <div class="sticky-alerts"></div>
+
+      <!-- Navbar start -->
+      <nav class="navbar">
+        <div class="navbar-content">
+            <button id="toggle-sidebar-btn" class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+        <a href="/" class="navbar-brand ml-10 ml-sm-15">
+            <img src="img/bs-logo.svg" class="hidden-dm mr-5 mr-sm-10" alt="bs-logo">
+            <img src="img/bs-logo.svg" class="hidden-lm mr-5 mr-sm-10" alt="bs-logo-white">
+            <span class="mr-5 mr-sm-10">Blazor Store</span>
+            <span class="badge font-size-12 text-monospace px-5 px-sm-10">
+                v1.0.2
+            </span>
+        </a>
+        <ul class="navbar-nav hidden-sm-and-down">
+            <li class="nav-item">
+                <a href="https://blazorstore.tlssoftwarevn.com/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a href="" class="nav-link">Documentation</a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.codecanyon.net/license/" class="nav-link">License <span class="ml-5 text-monospace font-size-12">(MIT)</span></a>
+            </li>
+        </ul>
+        <div class="navbar-content ml-auto">
+            <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
+                <i id="darkModeIcon" class="fa fa-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://codecanyon.net/user/tlssoftware/portfolio" class="btn btn-primary hidden-sm-and-down" role="button">
+                <i class="fa fa-cloud-download mr-5" aria-hidden="true"></i>
+                Download
+            </a>
+            <div class="dropdown with-arrow hidden-md-and-up">
+                <button class="btn navbar-menu-btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn" aria-haspopup="true" aria-expanded="false">
+                    <span class="text">Menu</span>
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-toggle-btn">
+                    <a href="https://blazorstore.tlssoftwarevn.com/" class="dropdown-item">Home</a>
+                    <a href="" class="dropdown-item">Documentation</a>
+                    <a href="https://codecanyon.net/licenses/standard" class="dropdown-item">License <span class="text-monospace font-size-12">(MIT)</span></a>
+                    <div class="dropdown-divider"></div>
+
+                    <div class="dropdown-content">
+                        <a href="https://codecanyon.net/user/tlssoftware/portfolio" class="btn btn-primary btn-download-sm" role="button">
+                            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                            <span class="ml-5">Download</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+      <!-- Navbar end -->
+
+      <!-- Sidebar overlay -->
+      <div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
+
+      <!-- Sidebar start -->
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-menu list">
+            <h5 class="sidebar-title">
+                Getting started
+            </h5>
+            <div class="sidebar-divider">
+            </div>
+            <a href="#introduction" class="sidebar-link" id="sidebar-introduction" data-active-scroll-disabled="enabled">
+                <span class="name">Introduction</span>
+            </a>
+            <a href="#prerequisites" class="sidebar-link" id="sidebar-download" data-active-scroll-disabled="enabled">
+                <span class="name">Prerequisites</span>
+            </a>
+            <a href="#running-applications" class="sidebar-link" id="sidebar-customize" data-active-scroll-disabled="enabled">
+                <span class="name">Running Applications</span>
+            </a>
+            <a href="#docker-support" class="sidebar-link" id="sidebar-page-building" data-active-scroll-disabled="enabled">
+                <span class="name">Docker Support</span>
+                <!-- <br>
+                <span class="text-muted font-size-12 text-smoothing-antialiased-dm">
+                    (<span class="alt-name">Starter template generator</span>)
+                </span> -->
+            </a>
+
+            <br>
+
+            <h5 class="sidebar-title">
+                Common Features
+            </h5>
+            <div class="sidebar-divider">
+            </div>
+            <a href="#login-page" class="sidebar-link" data-active-scroll-disabled="enabled">
+                <span class="name">Login Page</span>
+            </a>
+            <a href="#database-seeding" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Database Seeding</span>
+            </a>
+            <a href="#overall-ui" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Overall UI</span>
+            </a>
+            <a href="#mailing" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Mailing</span>
+            </a>
+            <a href="#user-registration"  class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">User Registration</span>
+            </a>
+            <a href="#email-confirmation" class="sidebar-link" data-active-scroll-disabled="disabled">
+              <span class="name">Email Confirmation</span>
+            </a>
+            <a href="#user-activation" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">User Activation</span>
+            </a>
+            <a href="#serilog" class="sidebar-link"  data-active-scroll-disabled="disabled">
+                <span class="name">Serilog</span>
+            </a>
+            <a href="#swagger" class="sidebar-link"  data-active-scroll-disabled="disabled">
+                <span class="name">Swagger</span>
+            </a>
+            <a href="#crud-operations" class="sidebar-link"  data-active-scroll-disabled="disabled">
+                <span class="name">CRUD Operations</span>
+            </a>
+            <a href="#dashboard" class="sidebar-link"  data-active-scroll-disabled="disabled">
+              <span class="name">Dashboard</span>
+            </a>
+            <a href="#realtime-chat" class="sidebar-link"  data-active-scroll-disabled="disabled">
+                <span class="name">Realtime Chat With SignalR And Identity</span>
+            </a>
+            <a href="#audit-trails" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Audit Trails</span>
+            </a>
+            <a href="#document-store" class="sidebar-link"  data-active-scroll-disabled="disabled">
+                <span class="name">Document Store</span>
+            </a>
+            <a href="#export-excel" class="sidebar-link" data-active-scroll-disabled="disabled">
+              <span class="name">Export To Excel</span>
+            </a>
+            <a href="#role-permissions" class="sidebar-link" data-active-scroll-disabled="disabled">
+              <span class="name">Roles & Permissions</span>
+            </a>
+            <a href="#reset-password" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Forgot/Reset Password</span>
+            </a>
+            <a href="#profile-picture" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Profile Picture</span>
+            </a>
+            <a href="#darkmode" class="sidebar-link" data-active-scroll-disabled="disabled">
+                <span class="name">Dark Mode</span>
+            </a>
+            <a href="#localization" class="sidebar-link" data-active-scroll-disabled="disabled">
+              <span class="name">Localization</span>
+            </a>
+            <a href="#hangfire" class="sidebar-link" data-active-scroll-disabled="disabled">
+              <span class="name">Hangfire</span>
+            </a>
+
+            <br>
+
+            <h5 class="sidebar-title">
+              Basic Structure
+            </h5>
+            <div class="sidebar-divider">
+            </div>
+            <a href="#main-layout" class="sidebar-link">
+              <span class="name">Main Layout</span>
+            </a>
+            <a href="#main-body" class="sidebar-link">
+              <span class="name">Main Body</span>
+            </a>
+            <a href="#nav-menu" class="sidebar-link">
+              <span class="name">Top Navigation Menu (Appbar)</span>
+            </a>
+            <a href="#app-drawer" class="sidebar-link">
+              <span class="name">App Drawer - Sidebar</span>
+            </a>
+            <a href="#bottom-menu" class="sidebar-link">
+              <span class="name">Bottom Navigation Menu</span>
+            </a>
+
+            <br>
+            
+            <h5 class="sidebar-title">
+              App Templates
+            </h5>
+            <div class="sidebar-divider">
+            </div>
+            <a href="#commerce" class="sidebar-link" >
+                <span class="name">E-Commerce Pages </span>
+            </a>
+            <a href="#wallet" class="sidebar-link" >
+                <span class="name">E-Wallet Pages</span>
+            </a>
+            <a href="#others" class="sidebar-link" >
+                <span class="name">Other Pages</span>
+            </a>
+
+            <br>
+
+            <h5 class="sidebar-title">
+              Customization
+            </h5>
+            <div class="sidebar-divider">
+            </div>
+            <a href="#app-logo" class="sidebar-link" >
+                <span class="name">App name, logo</span>
+            </a>
+
+            <br>
+
+            <h5 class="sidebar-title">
+              Publishing Applications
+            </h5>
+            <div class="sidebar-divider">
+            </div>
+            <a href="#publish" class="sidebar-link" >
+              <span class="name">Publish Applications</span>
+            </a>
+
+            <br>
+            <h5 class="sidebar-title">
+              <a href="#credit">Credit</a> 
+          </h5>
+        </div>
+    </div>
+      <!-- Sidebar end -->
+
+      <!-- Content wrapper start -->
+      <div class="content-wrapper">
+        <!-- <div class="w-full h-full d-flex align-items-center justify-content-center">
+        </div> -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-1">
+            </div>
+
+            <div class="col-xl-10">
+
+              <div id="top" class="content d-flex flex-column justify-content-center">
+                <img src="img/bs-logo.svg" class="mr-5 mr-sm-10" height="100" alt="bs-logo">
+                <h1 class="content-title font-size-24 text-primary text-center mt-5">
+                  Blazor Store <br>
+                  <span class="font-size-16 text-muted text-center text-decoration-none">A beautifully crafted Mobile PWA & Site Template made to run incredibly fast and be extremely easy to edit and customize.</span>
+                </h1>
+              </div>
+              <div class="text-left">
+                <ul>
+                  <li>Version: v1.0.0</li>
+                  <li>Created: 01/10/2021 | Last update: 11/10/2021</li>
+                  <li>Author: TLS Software</li>
+                  <li>Porfolio: <a href="https://codecanyon.net/user/tlssoftware/portfolio">https://codecanyon.net/user/tlssoftware/portfolio</a></li>
+                  <li>Website: <a href="https://tlssoftwarevn.com">https://tlssoftwarevn.com</a> |  Email: <a href="mailto:thanhlongsolutions4u@gmail.com">thanhlongsolutions4u@gmail.com</a></li>
+              </ul>           
+              </div>
+              <hr>
+              <div class="alert alert-danger filled-lm" role="alert">
+                <h4 class="alert-heading">Thank you so much for purchasing Blazor Store! </h4>	
+                We hope you will find this application is helpful for your next exciting project.
+              </div>
+              <hr>
+
+              <div id="getting-started" class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Getting started
+                </h1>
+              </div>
+              <div id="introduction">
+                <div class="content">
+                  <h2 class="content-title">
+                    Introduction
+                  </h2>
+                  <p>
+                    Welcome to BlazorStore. A beautifully crafted Mobile PWA & Site Template made to run incredibly fast and be extremely easy to edit and customize.
+                  </p>
+                  <p>
+                    Based on <strong>MudBlazor</strong> with an emphasis on ease of use and clear structure. It is perfect for .NET developers who want to rapidly build web applications without having to struggle with CSS and Javascript
+                  </p>
+                  <p>
+                    In BlazorStore, we added PWA feature, with an E-Commerce app material template that looks and behaves as if it is a mobile app. PWAs are built to take advantage of native mobile device features, without requiring the end user to visit an app store, make a purchase and download software locally
+                  </p>
+                  <div class="p-0 text-center">
+                    <img height="500" src="img/preview.png" alt="preview" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="prerequisites">
+                <div class="content">
+                    <h2 class="content-title">
+                      Prerequisites
+                    </h2>
+                    <p>
+                      In this article, we will learn about getting started with Blazor Store - A Clean Architecture Template built for Blazor WebAssembly using MudBlazor Components. This project will make your Blazor Learning Process much easier than you anticipate. Blazor Store is meant to be an Enterprise Level Boilerplate, which comes free of cost, completely open sourced.
+                    </p>
+                    <ul>
+                        <li>
+                            Make sure you are running on the latest .NET 6 SDK (SDK 6.0 and above only). <a class="hyperlink" href="https://dotnet.microsoft.com/download/dotnet/6.0" target="_blank" rel="noopener">Get the latest one here.</a>
+                        </li>
+                        <li>
+                            Visual Studio 2022. Make sure that ASP.NET and web development workload is installed.
+                        </li>
+                        <li>
+                            Install the latest DOTNET & EF CLI Tools by using this command <strong>– dotnet tool install –-global dotnet-ef</strong>  
+                        </li>
+                        <li>
+                         We recommend that you read <a href="https://codewithmukesh.com/blog/onion-architecture-in-aspnet-core/" target="_blank" rel="noopener noreferer">Onion Architecture In ASP.NET Core With CQRS – Detailed</a>  article to understand this implementation much better. This project is just an Advanced Version of the mentioned article.
+                        </li>
+                        <li>
+                          Once you clear with Onion Architecture Implementation, you will also need to be aware of CQRS MediatR Pattern. <a href="https://codewithmukesh.com/blog/cqrs-in-aspnet-core-3-1/" target="_blank" rel="noopener noreferer">Refer step-by-step guide on how to implement CQRS using MediatR Library</a>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="running-applications">
+                <div class="content">
+                  <h2 class="content-title">
+                    Running Applications
+                  </h2>
+                  <p>
+                    Once you have downloaded the files, all you have to do is include the following files in your project:
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/running-solution-1.png" alt="running-applications" >
+                  </div>
+                  <p>
+                    Let’s open up the <strong>BlazorStore.sln</strong> solution file. Wait for Visual Studio to finish installing all the required packages. You can see the Folder Structure of the Project below.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/solution-structure.png" alt="solution-structure" >
+                  </div>
+                  <div class="alert alert-success filled-lm" role="alert">
+                    <h4 class="alert-heading">Important Note</h4>	
+                    Please make sure that the <strong>BlazorStore.Server</strong> project is set as the startup project.
+                  </div>
+                  
+                  <p>
+                    By default, the localdb instance of your SQLServer is used as the Data Source with your namespace as the DB Name. Feel free to change the connection strings which are located at the <strong>appsettings.json</strong> and <strong>appsettings.Development.json</strong> in the Server Project.
+                  </p>
+                  <div class="card p-0">
+                    <code>
+                      <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a31515">&quot;ConnectionStrings&quot;</span><span style="border: 1px solid #FF0000">:</span> {&quot;DefaultConnection&quot;: <span style="color: #a31515">&quot;Data Source=(localdb)\\mssqllocaldb;Initial Catalog=BlazorStore;Integrated Security=True;MultipleActiveResultSets=True&quot;</span> }<span style="border: 1px solid #FF0000">,</span>
+</pre></div>
+
+                    </code>
+                  </div>
+                  <p>
+                    Once you have fixed up your connection string, the next step is to create the database and update it. For this, open up the package manager console and set the default project as the <strong>BlazorStore.Insfrastructure</strong> project. Make sure that the <strong>BlazorStore.Server</strong> is set as the startup project as well. This is because all the packages and DBContexts related to building / migrating EFCore SQL Server databases are installed in the Infrastructure project.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/running-app.png" alt="running-app" >
+                  </div>
+                  <p>
+                    With that done, run the following command.
+                  </p>
+                  <div class="card p-0">
+                    <code>
+                      update-database
+                    </code>
+                  </div>
+                  <div class="alert alert-secondary filled-lm" role="alert">
+                    <h4 class="alert-heading">Important Note</h4>
+                    BlazorStore have already added the latest migrations of the database. You are <strong>no need</strong> to run the add-migration command again.
+                  </div>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/running-app-1.webp" alt="running-app-1" >
+                  </div>
+                  <p>
+                    Once the database migration is done, you will be able to see the newly created database in the server explorer. Default Data like Roles and Users will be seeded into the database when you run the application for the first time.
+                  </p>
+                  <p>
+                    With the database migrations done, we are good to go. We recommend using the Kestrel Server instead of the IIS Server Variant. To switch to Kestrel, do the following.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/running-kestrel.png" alt="running-kestrel" >
+                  </div>
+                  <p>
+                    Once you run the application with Kestrel, you can see the below terminal popup. Here you can note that some default data is seeded while the application is run for the first time. This includes default roles, users, and permissions.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/running-kestrel-1.webp" alt="running-kestrel-1" >
+                  </div>
+                  <p>Let’s have a quick overview/guide of getting along with BlazorStore.</p>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="docker-support">
+                <div class="content">
+                  <h2 class="content-title">
+                    Docker Support
+                  </h2>
+                  <p>
+                    By default, Docker project build is disabled for BlazorStore. You can re-enable them by right-clicking the Solution in Visual Studio and enabling ‘docker-compose’ Build option in the Configuration Properties section!
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="350" src="img/docker.webp" alt="docker" >
+                  </div>
+                  <p>
+                    Here are the steps:
+                  </p>
+                  <ul>
+                    <li>
+                      Install Docker on Windows via https://docs.docker.com/docker-for-windows/install/
+                    </li>
+                    <li>
+                      Open up <strong>Powershell</strong> on Windows and run the following
+                      <ul>
+                        <li>
+                          <code>
+                            cd c:\
+                          </code>
+                        </li>
+                        <li>
+                          <code>
+                            dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\aspnetapp.pfx -p securePassword123
+                          </code>
+                        </li>
+                        <li>
+                          dotnet dev-certs https --trust
+                        </li>
+                        <li>
+                          Note – Make sure that you use the same password that has been configured in the <strong>docker-compose.yml</strong> file. By default, <code>securePassword123</code> is configured.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      5005 & 5006 are the ports set up to run BlazorStore on Docker, so make sure that these ports are free. You could also change the ports in the docker-compose.yml and Server\Dockerfile files.
+                    </li>
+                    <li>
+                      Now navigate back to the root of the BlazorStore Project on your local machine and run the following via terminal – <code>docker-compose -f ‘docker-compose.yml’ up –build</code>
+                    </li>
+                    <li>
+                      This will start pulling MSSQL Server Image from Docker Hub if you don’t already have this image. It’s around 500+ Mbs of download.
+                    </li>
+                    <li>
+                      Once that is done, dotnet SDKs and runtimes are downloaded, if not present already. That’s almost 200+ more Mbs of download.
+                    </li>
+                    <li>
+                      PS If you find any issues while Docker installs the NuGet packages, it is most likely that your SSL certificates are not installed properly. Apart from that I also added the –disable-parallel in the Server\Dockerfileto ensure network issues don’t pop up. You can remove this option to speed up the build process.
+                    </li>
+                    <li>
+                      That’s almost everything. Once the containers are available, migrations are updated in the MSSQL DB, default data is seeded.
+                    </li>
+                    <li>
+                      Browse to <strong>https://localhost:5005/</strong> to use your version of BlazorStore!
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="common-features" class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Common Features
+                </h1>
+              </div>
+              <div id="login-page">
+                <div class="content">
+                  <h2 class="content-title">
+                    Login Page
+                  </h2>
+                  <p>
+                    Here is the login page that gave you the initial taste of Blazor Hero and MudBlazor Components! To get started quickly, you can click at one of two buttons to fill in the credentials of the default <strong>Administrator</strong> or <strong>Basic Users</strong>.
+                  </p>
+                  
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/login.png" alt="login" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="database-seeding">
+                <div class="content">
+                    <h2 class="content-title">
+                      Database Seeding
+                    </h2>
+                    <p>
+                      While the application starts for the first time, default data is seeded to the database.
+                    </p>
+                    <strong>Role</strong>
+                    <ul>
+                        <li>
+                          Administrator – Has all the permissions to access each and every resource.
+                        </li>
+                        <li>
+                          Basic
+                        </li>
+                    </ul>
+                    <p><strong>Users</strong></p>
+                    <p>Here are the default users registered to the system on startup. The below list follows the following format – <strong>email / password / role</strong></p>
+                    <ul>
+                        <li>
+                          admin@blazorstore.com / 123Pa$$word! / admin
+                        </li>
+                        <li>
+                          john@blazorstore.com / 123Pa$$word! / basic
+                        </li>
+                    </ul>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="overall-ui">
+                <div class="content">
+                  <h2 class="content-title">
+                    Overall UI
+                  </h2>
+                  <p>
+                    Once you are logged in, you will get to see the below screen.
+                  </p>
+                  <ul>
+                    <li>
+                      Navigation Menu – Top
+                    </li>
+                    <li>
+                      App Drawer – Sidebar
+                    </li>
+                    <li>
+                      Body
+                    </li>
+                  </ul>
+                  <div class="card p-0 text-center">
+                    <img src="img/overall-ui.png" height="450" alt="overall-ui" >
+                  </div>
+                  <p>
+                    Blazor Store is completely built with <a href="https://mudblazor.com/" rel="nofollow noopener noreferer" target="_blank">MudBlazor Component Library</a> . Mudblazor actually makes your apps look stunning by making no compromises on the features as well.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img src="img/mudblazor.png" height="450" alt="mudblazor" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="mailing">
+                <div class="content">
+                  <h2 class="content-title">
+                    Mailing
+                  </h2>
+                  <p>
+                    Currently, the mailing service is enabled for sending User Registration, Reset Password Emails. BlazorSotre implemented SMTP Services for sending out emails. Feel free to make separate implementations for other mail services like SendGrid. You would just have to add the implementation in the Infrastructure.Shared Project and something like a SendGridMailService under the services folder. Make sure to implement it from the IMailService interface.
+                  </p>
+                  <p>
+                    By default, all the mails are configured to bounce to an Ethereal mailbox that is meant for test purposes only. You can find the ethereal configuration under the appsettings.json. This means that whoever be the recipient of the mail, it actually ends up in ethereal mailbox only. Pretty cool to have this while testing.
+                  </p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        appsettings.json
+                    </div>
+                    <div class="code-container">
+                      <button class="btn btn-sm copy-button" type="button" onclick="copyCode(this, &#39;code-block-1&#39;)">
+                          <i class="fa fa-clipboard" aria-hidden="true"></i> Copy
+                      </button>
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a31515">&quot;MailConfiguration&quot;</span><span style="border: 1px solid #FF0000">:</span> {
+  &quot;From&quot;: <span style="color: #a31515">&quot;hollie.cummerata78@ethereal.email&quot;</span>,
+  &quot;Host&quot;: <span style="color: #a31515">&quot;smtp.ethereal.email&quot;</span>,
+  &quot;Port&quot;: 587,
+  &quot;UserName&quot;: <span style="color: #a31515">&quot;adaline.pfannerstill49@ethereal.email&quot;</span>,
+  &quot;Password&quot;: <span style="color: #a31515">&quot;vAKmWQB8CyPUBg8rBQ&quot;</span>,
+  &quot;DisplayName&quot;: <span style="color: #a31515">&quot;Blazor Store&quot;</span>
+}<span style="border: 1px solid #FF0000">,</span>
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>  
+
+                  <div class="alert alert-success filled-lm" role="alert">
+                    <h4 class="alert-heading">Important Note</h4>	
+                    Note that you can generate your own ethereal mailbox credentials by visiting <a href="https://ethereal.email/" target="_blank" rel="noopener noreferer">here.</a>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="user-registration">
+                <div class="content">
+                  <h2 class="content-title">
+                    User Registration
+                  </h2>
+                  <p>
+                    If you are logged in as an Administrator, you get permissions to add new users to the system. Let’s add one!
+                  </p>
+                  <p>
+                    Navigate to /identity/users by clicking on <strong>Users</strong> in the sidebar. Here you get to see all the registered users.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/user-1.png" alt="user-1" >
+                  </div>
+                  <p>
+                    From here, click on the <strong>Register New User</strong> button.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/user-2.png" alt="user-2" >
+                  </div>
+
+                  <div class="alert alert-danger filled-lm" role="alert">
+                    <h4 class="alert-heading">Important Note</h4>
+                    Make sure that the username you enter is 6 characters or longer.
+                  </div>
+
+                  <p>
+                    Click <strong>Register</strong> after filling in the details. You can notice the two checkboxes.
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Activate User</strong> – This system has additional security that even after registration, the user should be approved by the administrator to access the resource. Unless the user is active, he/she will be locked out of the system. To skip this, check the <strong>Activate User</strong> box.
+                    </li>
+                    <li>
+                      <strong>Auto-Confirm Email</strong> – To register a new account with the system, the user has to confirm his/her email. BlazorHero sends an activation mail to the registered Email Id. In our case, by default, the registration mail goes to the ethereal mailbox. Again, to skip the part where the email has to confirmed, just check the <strong>Auto-Confirm Email</strong> checkbox.
+                    </li>
+                  </ul>
+                  <p>
+                    Once the user is registered, an Email gets scheduled as a Background Job via Hangfire which then sends it to the Ethereal Mailbox.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/user-3.png" alt="user-3" >
+                  </div>
+
+                  <p>
+                    Apart from this, users can also anonymously register into the application by navigating to the /register page.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/register.png" alt="register" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="email-confirmation">
+                <div class="content">
+                  <h2 class="content-title">
+                    Email Confirmation
+                  </h2>
+                  <p>
+                    Here is the email confirmation that got delivered to Ethereal Mailbox.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img src="img/email-confirm.webp" alt="email-confirm" >
+                  </div>
+                  <p>
+                    On clicking the supplied link, the email id of the user gets confirmed with the system. As simple as that.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img  src="img/email-confirm-1.webp" alt="email-confirm-1" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="user-activation">
+                <div class="content">
+                  <h2 class="content-title">
+                    User Activation
+                  </h2>
+                  <p>
+                    Now that the new user’s mail id is confirmed, it’s time to activate his account. Note that only administrators can do this. Click on <strong>View Profile</strong> under the User’s Dropdown.
+                  </p>
+
+                  <p>
+                    Here, check the <strong>Active</strong> checkbox and click <strong>Save Changes</strong>. That’s it! This is how an Administrator can activate/deactivate users.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/activate-user.png" alt="activate-user" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="serilog">
+                <div class="content">
+                  <h2 class="content-title">
+                    Serilog
+                  </h2>
+                  <p>
+                    Here is the default provided configuration for Serilog. As of now, the logs are written to text files locally to the application. To add in Database logging with Serilog in ASP.NET Core, <a rel="noopener nofollow noreferer" target="_blank" href="https://codewithmukesh.com/blog/serilog-in-aspnet-core-3-1/">refer to this article</a>.
+                  </p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        appsettings.json
+                    </div>
+                    <div class="code-container">
+                      <button class="btn btn-sm copy-button" type="button" onclick="copyCode(this, &#39;code-block-1&#39;)">
+                          <i class="fa fa-clipboard" aria-hidden="true"></i> Copy
+                      </button>
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a31515">&quot;Serilog&quot;</span><span style="border: 1px solid #FF0000">:</span> {
+    &quot;MinimumLevel&quot;: {
+      &quot;Default&quot;: <span style="color: #a31515">&quot;Information&quot;</span>,
+      &quot;Override&quot;: {
+        &quot;Microsoft&quot;: <span style="color: #a31515">&quot;Error&quot;</span>,
+        &quot;Microsoft.Hosting.Lifetime&quot;: <span style="color: #a31515">&quot;Information&quot;</span>,
+        &quot;System&quot;: <span style="color: #a31515">&quot;Information&quot;</span>,
+        &quot;Hangfire&quot;: <span style="color: #a31515">&quot;Warning&quot;</span>
+      }
+    },
+    &quot;WriteTo&quot;: [
+      {
+        &quot;Name&quot;: <span style="color: #a31515">&quot;Console&quot;</span>,
+        &quot;Args&quot;: {
+          &quot;outputTemplate&quot;: <span style="color: #a31515">&quot;{Timestamp} [{Level}] {Message}{NewLine:1}&quot;</span>
+        }
+      },
+      {
+        &quot;Name&quot;: <span style="color: #a31515">&quot;File&quot;</span>,
+        &quot;Args&quot;: {
+          &quot;path&quot;: <span style="color: #a31515">&quot;Logs\\log.txt&quot;</span>,
+          &quot;rollingInterval&quot;: <span style="color: #a31515">&quot;Day&quot;</span>
+        }
+      }
+    ],
+    &quot;Enrich&quot;: [
+      <span style="color: #a31515">&quot;FromLogContext&quot;</span>,
+      <span style="color: #a31515">&quot;WithMachineName&quot;</span>,
+      <span style="color: #a31515">&quot;WithProcessId&quot;</span>,
+      <span style="color: #a31515">&quot;WithThreadId&quot;</span>
+    ],
+    &quot;Properties&quot;: {
+      &quot;Application&quot;: <span style="color: #a31515">&quot;BlazorStore.Server&quot;</span>
+    }
+  }
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="swagger">
+                <div class="content">
+                  <h2 class="content-title">
+                    Swagger
+                  </h2>
+                  <p>
+                    Every API Developer’s favourite tool, Swagger! Navigate to /swagger to access Swagger.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/swagger.png" alt="swagger" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="crud-operations">
+                <div class="content">
+                  <h2 class="content-title">
+                    CRUD Operations
+                  </h2>
+                  <p>
+                    Let’s see some CRUD now.
+                  </p>
+                  <p>
+                    Open up the Brands Page. Here you get to see a Table for listing out all the Registered brands. Since it’s empty, let’s add a new one.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/crud-1.png" alt="crud-1" >
+                  </div>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/crud-2.png" alt="crud-2" >
+                  </div>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/crud-3.png" alt="crud-3" >
+                  </div>
+                  <p>
+                    Once a couple of brands are entered. Let’s add in products. Navigate to the Product Page. Here is a more advanced ADD Modal with Select Component and an Image component. Add in some dummy data and click Save.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/crud-4.png" alt="crud-4" >
+                  </div>
+                  <p>
+                    There you go! Similarly, you can Edit and Delete Products/Brands by clicking on the Actions dropdown against each of the entities. Pretty Self Explanatory, yeah?
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/crud-5.png" alt="crud-5" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="dashboard">
+                <div class="content">
+                  <h2 class="content-title">
+                    Dashboard
+                  </h2>
+                  <p>
+                    Here is a cool-looking dashboard with an intention to give quick insights into what’s actually happening within the application. From here you get to see the total count of products, brands, registered users, and roles
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/dashboard.png" alt="dashboard" >
+                  </div>
+                  <p>
+                    SignalR has been implemented to the dashboard so that any new entries/deletions of entities will be notified in real-time.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/source.gif" alt="dashboard1" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="realtime-chat">
+                <div class="content">
+                  <h2 class="content-title">
+                    Realtime Chat With SignalR And Identity
+                  </h2>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/chat.png" alt="chat" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="audit-trails">
+                <div class="content">
+                  <h2 class="content-title">
+                    Audit Trails
+                  </h2>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/audit-trails.png" alt="audit-trails" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="document-store">
+                <div class="content">
+                  <h2 class="content-title">
+                    Document Store
+                  </h2>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/document-1.png" alt="document-1" >
+                  </div>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/document-2.png" alt="document-2" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="export-excel">
+                <div class="content">
+                  <h2 class="content-title">
+                    Export To Excel
+                  </h2>
+                  <p>
+                    In this article, we will learn about getting started with Blazor Store - A Clean Architecture Template built for Blazor WebAssembly using MudBlazor Components. This project will make your Blazor Learning Process much easier than you anticipate. Blazor Store is meant to be an Enterprise Level Boilerplate, which comes free of cost, completely open sourced.
+                  </p>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="role-permissions">
+                <div class="content">
+                  <h2 class="content-title">
+                    Role And Permissions
+                  </h2>
+                  <p>
+                    Roles & Permissions are the vital part of Application Security. In this project, let’s see how these features are implemented.
+                  </p>
+                  <p>
+                    The Administrator by default gets to add, modify and delete Roles. Navigate to <strong>Roles</strong>.
+                  </p>
+                  <div class="alert alert-danger filled-lm" role="alert">
+                    <h4 class="alert-heading">Important Note</h4>
+                    You will not be able to delete the Standard Roles (Administrator & Basic) from the system, even with Administrator privileges.
+                  </div>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/role-1.png" alt="role-1" >
+                  </div>
+                  <p>
+                    Let’s create a new Manager Role!
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/role-2.png" alt="role-2" >
+                  </div>
+                  <p>
+                    I have designed the system so that Permissions are attached to User Roles, rather than Users or anything static. This gives a lot of flexibility and less complex code as well. You can Manage the Permissions of Roles by clicking the associated Actions Dropdown and selecting the Manage Permissions option.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/role-3.png" alt="role-3" >
+                  </div>
+                  <p>
+                    Here you get to check the required permissions for the selected User Role. As simple as that 😉
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/role-4.png" alt="role-4" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="reset-password">
+                <div class="content">
+                  <h2 class="content-title">
+                    Forgot/Reset Password
+                  </h2>
+                  <p>
+                    In the Login Page, you get an option to reset the password if you forgot it by any change. Here is the flow of the Password Reset Process.
+                  </p>
+                  <p>
+                    User clicks the Forgot Password Button on the Login Page. Gets redirected to the below page, where the user has to enter in his/her email address.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img height="450" src="img/forgot-password.png" alt="forgot-password" >
+                  </div>
+                  <p>
+                    On Submission, an email with a link to reset the user password gets sent to the email id of the registered user. In our case, it will drop into the Ethereal Mailbox. Here is how the email would look like.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img  src="img/email-reset-pass.webp" alt="email-reset-password" >
+                  </div>
+                  <p>
+                    Upon Link Click, the user would have to re-enter the actual email id and set a new password for his/her account. This will immediately update the user’s password.
+                  </p>
+                  <p>
+                    Password Reset Succeeded!
+                  </p>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="profile-picture">
+                <div class="content">
+                  <h2 class="content-title">
+                    Profile Picture
+                  </h2>
+                  <p>
+                    A standard feature of the project – To upload User Profile Picture. The uploaded images will be stored as Data URLs in the database.
+                  </p>
+                  <p>
+                    Furthermore, you can also update profile details as well as change the user password in the Security Tab of the Accounts Page.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img  src="img/profile-picture.png" height="450" alt="profile-picture" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="darkmode">
+                <div class="content">
+                  <h2 class="content-title">
+                    Darkmode
+                  </h2>
+                  <p>
+                    In this article, we will learn about getting started with Blazor Store - A Clean Architecture Template built for Blazor WebAssembly using MudBlazor Components. This project will make your Blazor Learning Process much easier than you anticipate. Blazor Store is meant to be an Enterprise Level Boilerplate, which comes free of cost, completely open sourced.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img  src="img/darkmode.png" height="450" alt="darkmode" >
+                  </div>
+                  <div class="card p-0 text-center">
+                    <img  src="img/darkmode.webp" height="350" alt="darkmode1" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="localization">
+                <div class="content">
+                  <h2 class="content-title">
+                    Localization
+                  </h2>
+                  <p>
+                    Blazor Store, as of now supports French, English, Khmer, German and Spanish. Although few of the translations are missing, it’s growing on a regular basis, Thanks to the contributors! Feel free to add in some missing translations as well!
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img  src="img/localization.png" height="350" alt="localization" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="hangfire">
+                <div class="content">
+                  <h2 class="content-title">
+                    Hangfire
+                  </h2>
+                  <p>
+                    To access the Hangfire dashboard, navigate to /jobs. As of now, this dashboard does not need permissions. It will be added in the upcoming versions of the project.
+                  </p>
+                  <div class="card p-0 text-center">
+                    <img  src="img/hangfire.webp" height="450" alt="hangfire" >
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <!--Basic Structure Section Start-->
+              <div id=basic-structure class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Basic Structure
+                </h1>
+              </div>
+              <div id="main-layout">
+                <div class="content">
+                  <h2 class="content-title">
+                    Main Layout
+                  </h2>
+
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        Client > Shared > MainLayout.razor
+                    </div>
+                    <div class="code-container">
+                      <code >
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">&lt;MudRTLProvider RightToLeft=<span style="color: #a31515">&quot;@_rightToLeft&quot;</span>&gt;
+  &lt;audio id=<span style="color: #a31515">&quot;notification&quot;</span> src=<span style="color: #a31515">&quot;/media/notification.mp3&quot;</span> /&gt;
+  &lt;MudThemeProvider Theme=<span style="color: #a31515">&quot;_currentTheme&quot;</span> /&gt;
+  &lt;MudDialogProvider DisableBackdropClick=<span style="color: #a31515">&quot;true&quot;</span> /&gt;
+  &lt;MudSnackbarProvider /&gt;
+  &lt;CascadingValue Value=<span style="color: #a31515">&quot;this&quot;</span>&gt;
+      &lt;AuthorizeView&gt;
+          &lt;NotAuthorized&gt;
+              @if (IsFirstVisit)
+              {
+                  &lt;LayoutView Layout=<span style="color: #a31515">&quot;@typeof(Walkthough)&quot;</span>&gt;
+                  &lt;/LayoutView&gt;
+              }
+              <span>else</span>
+              {
+                  &lt;MudAppBar Elevation=<span style="color: #a31515">&quot;4&quot;</span> Color=<span style="color: #a31515">&quot;Color.Primary&quot;</span>&gt;
+                      &lt;MudAppBarSpacer /&gt;
+                      &lt;LanguageSelector /&gt;
+                      &lt;MudTooltip Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Toggle Dark Mode<span style="color: #a31515">&quot;]&quot;</span>&gt;
+                          &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Brightness4&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; DarkMode())&quot;</span> /&gt;
+                      &lt;/MudTooltip&gt;
+                  &lt;/MudAppBar&gt;
+                  &lt;MudPaper Elevation=<span style="color: #a31515">&quot;0&quot;</span> Class=<span style="color: #a31515">&quot;d-flex round-lg&quot;</span> Style=<span style="color: #a31515">&quot;width: 100%; height: 100vh;&quot;</span>&gt;
+                      &lt;MudItem xs=<span style="color: #a31515">&quot;0&quot;</span> sm=<span style="color: #a31515">&quot;3&quot;</span> md=<span style="color: #a31515">&quot;3&quot;</span> lg=<span style="color: #a31515">&quot;4&quot;</span> xl=<span style="color: #a31515">&quot;4&quot;</span>&gt;&lt;/MudItem&gt;
+                      &lt;MudItem xs=<span style="color: #a31515">&quot;12&quot;</span> sm=<span style="color: #a31515">&quot;6&quot;</span> md=<span style="color: #a31515">&quot;6&quot;</span> lg=<span style="color: #a31515">&quot;4&quot;</span> xl=<span style="color: #a31515">&quot;4&quot;</span> Class=<span style="color: #a31515">&quot;pt-3 d-flex&quot;</span>&gt;
+                          @Body
+                      &lt;/MudItem&gt;
+                      &lt;MudItem xs=<span style="color: #a31515">&quot;0&quot;</span> sm=<span style="color: #a31515">&quot;3&quot;</span> md=<span style="color: #a31515">&quot;3&quot;</span> lg=<span style="color: #a31515">&quot;4&quot;</span> xl=<span style="color: #a31515">&quot;4&quot;</span>&gt;&lt;/MudItem&gt;
+                  &lt;/MudPaper&gt;
+              }
+          &lt;/NotAuthorized&gt;
+          &lt;Authorized&gt;
+              &lt;MudLayout&gt;
+                  &lt;MainBody OnDarkModeToggle=<span style="color: #a31515">&quot;@DarkMode&quot;</span> OnRightToLeftToggle=<span style="color: #a31515">&quot;@RightToLeftToggle&quot;</span>&gt;
+                      @Body
+                  &lt;/MainBody&gt;
+              &lt;/MudLayout&gt;
+          &lt;/Authorized&gt;
+      &lt;/AuthorizeView&gt;
+  &lt;/CascadingValue&gt;
+
+&lt;/MudRTLProvider&gt;
+</pre></div>
+                      </code>
+                    </div>
+                  </div>
+
+                  <p>
+                    <strong>NotAuthorized:</strong> layout for onboarding (walkthrough), login, register and forgot password pages. 
+                  </p>
+                  <p>
+                    <strong>Authorized:</strong> layout for all main feature pages in BlazorStore that figured out in <a href="#overall-ui">Overall UI</a> section.
+                  </p>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="main-body">
+                <div class="content">
+                  <h2 class="content-title">
+                    Main Body
+                  </h2>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                      Client > Shared > MainBody.razor
+                    </div>
+                    <div class="code-container">
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">&lt;MudAppBar Elevation=<span style="color: #a31515">&quot;1&quot;</span>&gt;
+    &lt;MudToolBar DisableGutters=<span style="color: #a31515">&quot;true&quot;</span>&gt;
+    &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Menu&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; DrawerToggle())&quot;</span> Class=<span style="color: #a31515">&quot;ml-3&quot;</span> /&gt;
+&lt;/MudToolBar&gt;
+&lt;MudAppBarSpacer /&gt;
+&lt;MudHidden Breakpoint=<span style="color: #a31515">&quot;Breakpoint.MdAndUp&quot;</span> Invert=<span style="color: #a31515">&quot;true&quot;</span>&gt;
+    &lt;LanguageSelector /&gt;
+    &lt;MudTooltip Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Toggle right-to-left/left-to-right<span style="color: #a31515">&quot;]&quot;</span>&gt;
+        &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.FormatTextdirectionRToL&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; RightToLeftToggle())&quot;</span> /&gt;
+    &lt;/MudTooltip&gt;
+    &lt;MudTooltip Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Toggle Dark Mode<span style="color: #a31515">&quot;]&quot;</span>&gt;
+        &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Brightness4&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; ToggleDarkMode())&quot;</span> /&gt;
+    &lt;/MudTooltip&gt;
+
+    &lt;MudMenu Direction=<span style="color: #a31515">&quot;_rightToLeft ? Direction.Right : Direction.Left&quot;</span> OffsetX=<span style="color: #a31515">&quot;true&quot;</span> Dense=<span style="color: #a31515">&quot;true&quot;</span> Class=<span style="color: #a31515">&quot;mt-1 ml-4&quot;</span>&gt;
+        &lt;ActivatorContent&gt;
+            @if (<span style="color: #2b91af">string</span>.IsNullOrEmpty(ImageDataUrl))
+            {
+                &lt;MudAvatar Color=<span style="color: #a31515">&quot;Color.Secondary&quot;</span>&gt;@FirstLetterOfName&lt;/MudAvatar&gt;
+            }
+            <span style="color: #0000ff">else</span>
+            {
+                &lt;MudAvatar Image=<span style="color: #a31515">&quot;@ImageDataUrl&quot;</span> Style=<span style="color: #a31515">&quot;height:50px; width:50px;&quot;</span>&gt; &lt;/MudAvatar&gt;
+            }
+        &lt;/ActivatorContent&gt;
+        &lt;ChildContent&gt;
+            &lt;UserCard Class=<span style="color: #a31515">&quot;mt-n2&quot;</span> /&gt;
+            &lt;MudDivider Class=<span style="color: #a31515">&quot;mb-2&quot;</span> /&gt;
+            &lt;MudListItem Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Account<span style="color: #a31515">&quot;]&quot;</span> Href=<span style="color: #a31515">&quot;/account&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Person&quot;</span> /&gt;
+            &lt;MudListItem Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Logout<span style="color: #a31515">&quot;]&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Logout&quot;</span> OnClick=<span style="color: #a31515">&quot;Logout&quot;</span> /&gt;
+        &lt;/ChildContent&gt;
+    &lt;/MudMenu&gt;
+&lt;/MudHidden&gt;
+
+&lt;/MudAppBar&gt;
+
+&lt;MudDrawer @bind-Open=<span style="color: #a31515">&quot;_drawerOpen&quot;</span> Elevation=<span style="color: #a31515">&quot;1&quot;</span>&gt;
+&lt;NavMenu /&gt;
+&lt;/MudDrawer&gt;
+&lt;MudMainContent&gt;
+&lt;MudContainer MaxWidth=<span style="color: #a31515">&quot;MaxWidth.False&quot;</span> Class=<span style="color: #a31515">&quot;mt-4&quot;</span>&gt;
+    &lt;CascadingValue Value=<span style="color: #a31515">&quot;hubConnection&quot;</span>&gt;
+        @ChildContent
+    &lt;/CascadingValue&gt;
+&lt;/MudContainer&gt;
+&lt;div style=<span style="color: #a31515">&quot;height: 80px&quot;</span>&gt;
+&lt;/div&gt;
+&lt;MudHidden Breakpoint=<span style="color: #a31515">&quot;Breakpoint.MdAndDown&quot;</span> Invert=<span style="color: #a31515">&quot;true&quot;</span> &gt;
+    &lt;BottomNavMenu&gt;
+        &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/stores&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.LocationSearching&quot;</span> Title=<span style="color: #a31515">&quot;Store&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+        &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/shopping&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.Prefix&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.ShoppingCart&quot;</span> Title=<span style="color: #a31515">&quot;Shopping&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+        &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Home&quot;</span> Title=<span style="color: #a31515">&quot;Home&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+        &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/news&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Campaign&quot;</span> Title=<span style="color: #a31515">&quot;News&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+        &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/settings&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.SettingsApplications&quot;</span> Title=<span style="color: #a31515">&quot;Settings&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+    &lt;/BottomNavMenu&gt;
+&lt;/MudHidden&gt;
+&lt;/MudMainContent&gt;
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="nav-menu">
+                <div class="content">
+                  <h2 class="content-title">
+                    Navigation Menu - Top
+                  </h2>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        Client > Shared > MainBody.razor
+                    </div>
+                    <div class="code-container">
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">&lt;MudAppBar Elevation=<span style="color: #a31515">&quot;1&quot;</span>&gt;
+    &lt;MudToolBar DisableGutters=<span style="color: #a31515">&quot;true&quot;</span>&gt;
+    &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Menu&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; DrawerToggle())&quot;</span> Class=<span style="color: #a31515">&quot;ml-3&quot;</span> /&gt;
+&lt;/MudToolBar&gt;
+&lt;MudAppBarSpacer /&gt;
+&lt;MudHidden Breakpoint=<span style="color: #a31515">&quot;Breakpoint.MdAndUp&quot;</span> Invert=<span style="color: #a31515">&quot;true&quot;</span>&gt;
+    &lt;LanguageSelector /&gt;
+    &lt;MudTooltip Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Toggle right-to-left/left-to-right<span style="color: #a31515">&quot;]&quot;</span>&gt;
+        &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.FormatTextdirectionRToL&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; RightToLeftToggle())&quot;</span> /&gt;
+    &lt;/MudTooltip&gt;
+    &lt;MudTooltip Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Toggle Dark Mode<span style="color: #a31515">&quot;]&quot;</span>&gt;
+        &lt;MudIconButton Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Brightness4&quot;</span> Color=<span style="color: #a31515">&quot;Color.Inherit&quot;</span> OnClick=<span style="color: #a31515">&quot;@((e) =&gt; ToggleDarkMode())&quot;</span> /&gt;
+    &lt;/MudTooltip&gt;
+
+    &lt;MudMenu Direction=<span style="color: #a31515">&quot;_rightToLeft ? Direction.Right : Direction.Left&quot;</span> OffsetX=<span style="color: #a31515">&quot;true&quot;</span> Dense=<span style="color: #a31515">&quot;true&quot;</span> Class=<span style="color: #a31515">&quot;mt-1 ml-4&quot;</span>&gt;
+        &lt;ActivatorContent&gt;
+            @if (<span style="color: #2b91af">string</span>.IsNullOrEmpty(ImageDataUrl))
+            {
+                &lt;MudAvatar Color=<span style="color: #a31515">&quot;Color.Secondary&quot;</span>&gt;@FirstLetterOfName&lt;/MudAvatar&gt;
+            }
+            <span style="color: #0000ff">else</span>
+            {
+                &lt;MudAvatar Image=<span style="color: #a31515">&quot;@ImageDataUrl&quot;</span> Style=<span style="color: #a31515">&quot;height:50px; width:50px;&quot;</span>&gt; &lt;/MudAvatar&gt;
+            }
+        &lt;/ActivatorContent&gt;
+        &lt;ChildContent&gt;
+            &lt;UserCard Class=<span style="color: #a31515">&quot;mt-n2&quot;</span> /&gt;
+            &lt;MudDivider Class=<span style="color: #a31515">&quot;mb-2&quot;</span> /&gt;
+            &lt;MudListItem Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Account<span style="color: #a31515">&quot;]&quot;</span> Href=<span style="color: #a31515">&quot;/account&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Person&quot;</span> /&gt;
+            &lt;MudListItem Text=<span style="color: #a31515">&quot;@_localizer[&quot;</span>Logout<span style="color: #a31515">&quot;]&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Logout&quot;</span> OnClick=<span style="color: #a31515">&quot;Logout&quot;</span> /&gt;
+        &lt;/ChildContent&gt;
+    &lt;/MudMenu&gt;
+&lt;/MudHidden&gt;
+
+&lt;/MudAppBar&gt;
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="app-drawer">
+                <div class="content">
+                  <h2 class="content-title">
+                    App Drawer - Sidebar
+                  </h2>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        Client > Shared > NavMenu.razor
+                    </div>
+                    <div class="code-container">
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">&lt;UserCard /&gt;
+&lt;MudNavMenu&gt;
+&lt;MudNavLink Href=<span style="color: #a31515">&quot;/&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Home&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Home&quot;</span>]&lt;/MudNavLink&gt;
+@if (_canViewHangfire)
+{
+    &lt;MudNavLink Href=<span style="color: #a31515">&quot;/jobs&quot;</span> Target=<span style="color: #a31515">&quot;_blank&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Work&quot;</span>&gt;
+        @_localizer[<span style="color: #a31515">&quot;Hangfire&quot;</span>]
+    &lt;/MudNavLink&gt;
+}
+&lt;MudNavLink Href=<span style="color: #a31515">&quot;/swagger/index.html&quot;</span> Target=<span style="color: #a31515">&quot;_blank&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.LiveHelp&quot;</span>&gt;
+    @_localizer[<span style="color: #a31515">&quot;Swagger&quot;</span>]
+&lt;/MudNavLink&gt;
+&lt;MudListSubheader Class=<span style="color: #a31515">&quot;mt-2 mb-n2&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Personal&quot;</span>]&lt;/MudListSubheader&gt;
+@if (_canViewDashboards)
+{
+    &lt;MudNavLink Href=<span style="color: #a31515">&quot;/dashboard&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Dashboard&quot;</span>&gt;
+        @_localizer[<span style="color: #a31515">&quot;Dashboard&quot;</span>]
+    &lt;/MudNavLink&gt;
+}
+&lt;MudNavLink Href=<span style="color: #a31515">&quot;/account&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.SupervisorAccount&quot;</span>&gt;
+    @_localizer[<span style="color: #a31515">&quot;Account&quot;</span>]
+&lt;/MudNavLink&gt;
+@if (_canViewAuditTrails)
+{
+    &lt;MudNavLink Href=<span style="color: #a31515">&quot;/audit-trails&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Security&quot;</span>&gt;
+        @_localizer[<span style="color: #a31515">&quot;Audit Trails&quot;</span>]
+    &lt;/MudNavLink&gt;
+}
+@if (_canViewDocuments || _canViewDocumentTypes)
+{
+    &lt;MudListSubheader Class=<span style="color: #a31515">&quot;mt-2 mb-n2&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Document Management&quot;</span>]&lt;/MudListSubheader&gt;
+    @if (_canViewDocuments)
+    {
+        &lt;MudNavLink Href=<span style="color: #a31515">&quot;/document-store&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.AttachFile&quot;</span>&gt;
+            @_localizer[<span style="color: #a31515">&quot;Document Store&quot;</span>]
+        &lt;/MudNavLink&gt;
+    }
+    @if (_canViewDocumentTypes)
+    {
+        &lt;MudNavLink Href=<span style="color: #a31515">&quot;/document-types&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.FileCopy&quot;</span>&gt;
+            @_localizer[<span style="color: #a31515">&quot;Document Types&quot;</span>]
+        &lt;/MudNavLink&gt;
+    }
+}
+
+@if (_canViewUsers || _canViewRoles)
+{
+    &lt;MudListSubheader Class=<span style="color: #a31515">&quot;mt-2 mb-n2&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Administrator&quot;</span>]&lt;/MudListSubheader&gt;
+    @if (_canViewUsers)
+    {
+        &lt;MudNavLink Href=<span style="color: #a31515">&quot;/identity/users&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Person&quot;</span>&gt;
+            @_localizer[<span style="color: #a31515">&quot;Users&quot;</span>]
+        &lt;/MudNavLink&gt;
+    }
+    @if (_canViewRoles)
+    {
+        &lt;MudNavLink Href=<span style="color: #a31515">&quot;/identity/roles&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Person&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Roles&quot;</span>]&lt;/MudNavLink&gt;
+    }
+}
+@if (_canViewChat)
+{
+    &lt;MudListSubheader Class=<span style="color: #a31515">&quot;mt-2 mb-n2&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Communication&quot;</span>]&lt;/MudListSubheader&gt;
+    &lt;MudNavLink Href=<span style="color: #a31515">&quot;/chat&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.Chat&quot;</span>&gt;
+        @_localizer[<span style="color: #a31515">&quot;Chat&quot;</span>]
+    &lt;/MudNavLink&gt;
+}
+@if (_canViewProducts || _canViewBrands)
+{
+    &lt;MudListSubheader Class=<span style="color: #a31515">&quot;mt-2 mb-n2&quot;</span>&gt;@_localizer[<span style="color: #a31515">&quot;Catalog Management&quot;</span>]&lt;/MudListSubheader&gt;
+    @if (_canViewProducts)
+    {
+        &lt;MudNavLink Href=<span style="color: #a31515">&quot;/catalog/products&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.CallToAction&quot;</span>&gt;
+            @_localizer[<span style="color: #a31515">&quot;Products&quot;</span>]
+        &lt;/MudNavLink&gt;
+    }
+    @if (_canViewBrands)
+    {
+        &lt;MudNavLink Href=<span style="color: #a31515">&quot;/catalog/brands&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Outlined.CallToAction&quot;</span>&gt;
+            @_localizer[<span style="color: #a31515">&quot;Brands&quot;</span>]
+        &lt;/MudNavLink&gt;
+    }
+}
+&lt;/MudNavMenu&gt;
+
+@code {
+<span style="color: #0000ff">private</span> ClaimsPrincipal _authenticationStateProviderUser;
+
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewHangfire;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewDashboards;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewDocuments;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewDocumentTypes;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewAuditTrails;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewRoles;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewUsers;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewChat;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewProducts;
+<span style="color: #0000ff">private</span> <span style="color: #2b91af">bool</span> _canViewBrands;
+
+<span style="color: #0000ff">protected</span> <span style="color: #0000ff">override</span> <span style="color: #0000ff">async</span> Task OnParametersSetAsync()
+{
+    _authenticationStateProviderUser = <span style="color: #0000ff">await</span> _stateProvider.GetAuthenticationStateProviderUserAsync();
+    _canViewHangfire = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Hangfire.View)).Succeeded;
+    _canViewDashboards = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Dashboards.View)).Succeeded;
+    _canViewDocuments = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Documents.View)).Succeeded;
+    _canViewDocumentTypes = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.DocumentTypes.View)).Succeeded;
+    _canViewAuditTrails = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.AuditTrails.View)).Succeeded;
+    _canViewRoles = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Roles.View)).Succeeded;
+    _canViewUsers = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Users.View)).Succeeded;
+    _canViewChat = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Communication.Chat)).Succeeded;
+    _canViewProducts = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Products.View)).Succeeded;
+    _canViewBrands = (<span style="color: #0000ff">await</span> _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Brands.View)).Succeeded;
+}
+}
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="bottom-menu">
+                <div class="content">
+                  <h2 class="content-title">
+                    Bottom Nav Menu
+                  </h2>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                      Client > Shared > MainBody.razor
+                    </div>
+                    <div class="code-container">
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">&lt;BottomNavMenu&gt;
+   &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/stores&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.LocationSearching&quot;</span> Title=<span style="color: #a31515">&quot;Store&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+   &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/shopping&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.Prefix&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.ShoppingCart&quot;</span> Title=<span style="color: #a31515">&quot;Shopping&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+   &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Home&quot;</span> Title=<span style="color: #a31515">&quot;Home&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+   &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/news&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.Campaign&quot;</span> Title=<span style="color: #a31515">&quot;News&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+   &lt;BottomNavMenuItem Href=<span style="color: #a31515">&quot;/settings&quot;</span> Match=<span style="color: #a31515">&quot;NavLinkMatch.All&quot;</span> Icon=<span style="color: #a31515">&quot;@Icons.Material.Filled.SettingsApplications&quot;</span> Title=<span style="color: #a31515">&quot;Settings&quot;</span>&gt;&lt;/BottomNavMenuItem&gt;
+&lt;/BottomNavMenu&gt;
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <!--Basic Structure Section End-->
+
+              <!--Mobile App Template Start-->
+              <div id=app-template class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Mobile App Template
+                </h1>
+              </div>
+              <div id="commerce">
+                <div class="content">
+                  <h2 class="content-title">
+                    E-Commerce Pages
+                  </h2>
+                  <div class="card p-0 d-flex justify-content-center text-center">
+                    <img height="450" src="img/ecommerce/home.jpg" alt="pages" class="mr-5">
+                    <img height="450" src="img/ecommerce/product-detail.jpg" alt="home" class="mr-5" >
+                    <img height="450" src="img/ecommerce/cart.jpg" alt="cart" class="mr-5">
+                    <img height="450" src="img/ecommerce/checkout.jpg" alt="checkout" >
+                  </div>
+                  <p>Pages directory:</p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        BlazorStore.Client > Pages > Content > Commerce
+                    </div>
+                    <div class="code-container">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="wallet">
+                <div class="content">
+                  <h2 class="content-title">
+                    E-Wallet Pages
+                  </h2>
+                  <div class="card p-0 d-flex justify-content-center text-center">
+                    <img height="450" src="img/ewallet/home.jpg" alt="pages" class="mr-5">
+                    <img height="450" src="img/ewallet/account.jpg" alt="pages" class="mr-5">
+                    <img height="450" src="img/ewallet/promotions.jpg" alt="pages" class="mr-5">
+                    <img height="450" src="img/ewallet/transaction-1.jpg" alt="pages">
+                  </div>
+                  <p>Pages directory:</p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        BlazorStore.Client > Pages > Content > Wallet
+                    </div>
+                    <div class="code-container">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div id="others">
+                <div class="content">
+                  <h2 class="content-title">
+                    Other Pages
+                  </h2>
+                  <div class="card p-0 d-flex justify-content-center">
+                    <img height="450" src="img/news.jpg" alt="news" class="mr-5" >
+                    <img height="450" src="img/qr-code.jpg" alt="qr-view" class="mr-5">
+                    <img height="450" src="img/stores.jpg" alt="stores" class="mr-5" >
+                    <img height="450" src="img/settings.jpg" alt="settings">
+                  </div>
+                  <p>Page directory:</p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                        BlazorStore.Client > Pages > Content
+                    </div>
+                    <div class="code-container">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <!--Mobile App Template End-->
+
+              <!--Customization Section Start-->
+              <div class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Customization
+                </h1>
+              </div>
+              <div id="app-logo">
+                <div class="content">
+                  <h2 class="content-title">
+                    App Name, Logo
+                  </h2>
+                  <p><strong>App name, icon:</strong></p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                      BlazorStore.Client > wwwroot > manifest.json
+                    </div>
+                    <div class="code-container">
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
+  &quot;name&quot;: <span style="color: #a31515">&quot;BlazorStore&quot;</span>,
+  &quot;short_name&quot;: <span style="color: #a31515">&quot;Blazor Store&quot;</span>,
+  &quot;start_url&quot;: <span style="color: #a31515">&quot;./&quot;</span>,
+  &quot;display&quot;: <span style="color: #a31515">&quot;standalone&quot;</span>,
+  &quot;background_color&quot;: <span style="color: #a31515">&quot;#ffffff&quot;</span>,
+  &quot;theme_color&quot;: <span style="color: #a31515">&quot;#03173d&quot;</span>,
+  &quot;icons&quot;: [
+    {
+      &quot;src&quot;: <span style="color: #a31515">&quot;icon-512.png&quot;</span>,
+      &quot;type&quot;: <span style="color: #a31515">&quot;image/png&quot;</span>,
+      &quot;sizes&quot;: <span style="color: #a31515">&quot;512x512&quot;</span>
+    }
+  ]
+}
+</pre></div>
+
+                      </code>
+                    </div>
+                  </div>
+
+                  <p><strong>Logo</strong>: use any code editor to view and copy your SVG image file type then replace Blazor logo below with your own</p>
+                  <div class="card p-0">
+                    <div class="code-header rounded-top border-top-0">
+                      BlazorStore.Client > Share > BlazoStoreLogo.razor
+                    </div>
+                    <div class="code-container">
+                      <code>
+                        <!-- HTML generated using hilite.me --><div style="overflow:auto;width:auto;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">&lt;svg version=<span style="color: #a31515">&quot;1.1&quot;</span> id=<span style="color: #a31515">&quot;Layer_1&quot;</span> xmlns=<span style="color: #a31515">&quot;http://www.w3.org/2000/svg&quot;</span> xmlns:xlink=<span style="color: #a31515">&quot;http://www.w3.org/1999/xlink&quot;</span> x=<span style="color: #a31515">&quot;0px&quot;</span> y=<span style="color: #a31515">&quot;0px&quot;</span>
+     width=<span style="color: #a31515">&quot;100px&quot;</span> height=<span style="color: #a31515">&quot;100px&quot;</span> viewBox=<span style="color: #a31515">&quot;0 0 512 512&quot;</span> enable-background=<span style="color: #a31515">&quot;new 0 0 512 512&quot;</span> xml:space=<span style="color: #a31515">&quot;preserve&quot;</span>&gt;
+     &lt;g&gt;
+     &lt;path fill=<span style="color: #a31515">&quot;#FFFFFF&quot;</span> d=<span style="color: #a31515">&quot;M403.6,512H108.4C48.8,512,0,463.2,0,403.6V108.4C0,48.8,48.8,0,108.4,0h295.2C463.2,0,512,48.8,512,108.4</span>
+     <span style="color: #a31515">		v295.2C512,463.2,463.2,512,403.6,512z&quot;</span> /&gt;
+     &lt;linearGradient id=<span style="color: #a31515">&quot;SVGID_1_&quot;</span> gradientUnits=<span style="color: #a31515">&quot;userSpaceOnUse&quot;</span> x1=<span style="color: #a31515">&quot;21.2195&quot;</span> y1=<span style="color: #a31515">&quot;256&quot;</span> x2=<span style="color: #a31515">&quot;490.7805&quot;</span> y2=<span style="color: #a31515">&quot;256&quot;</span>&gt;
+     &lt;stop offset=<span style="color: #a31515">&quot;0&quot;</span> style=<span style="color: #a31515">&quot;stop-color:#1E88E5&quot;</span> /&gt;
+     &lt;stop offset=<span style="color: #a31515">&quot;1&quot;</span> style=<span style="color: #a31515">&quot;stop-color:#3884FF&quot;</span> /&gt;
+       &lt;/linearGradient&gt;
+     &lt;path fill=<span style="color: #a31515">&quot;none&quot;</span> stroke=<span style="color: #a31515">&quot;url(#SVGID_1_)&quot;</span> stroke-width=<span style="color: #a31515">&quot;20&quot;</span> stroke-miterlimit=<span style="color: #a31515">&quot;10&quot;</span> d=<span style="color: #a31515">&quot;M399.1,480.8H112.9</span>
+     <span style="color: #a31515">		c-44.9,0-81.7-36.8-81.7-81.7V112.9c0-44.9,36.8-81.7,81.7-81.7h286.2c44.9,0,81.7,36.8,81.7,81.7v286.2</span>
+     <span style="color: #a31515">		C480.8,444,444,480.8,399.1,480.8z&quot;</span> /&gt;
+     &lt;g&gt;
+     &lt;linearGradient id=<span style="color: #a31515">&quot;SVGID_2_&quot;</span> gradientUnits=<span style="color: #a31515">&quot;userSpaceOnUse&quot;</span> x1=<span style="color: #a31515">&quot;274.1899&quot;</span> y1=<span style="color: #a31515">&quot;289.0654&quot;</span> x2=<span style="color: #a31515">&quot;435.3056&quot;</span> y2=<span style="color: #a31515">&quot;289.0654&quot;</span>&gt;
+     &lt;stop offset=<span style="color: #a31515">&quot;0&quot;</span> style=<span style="color: #a31515">&quot;stop-color:#1E88E5&quot;</span> /&gt;
+     &lt;stop offset=<span style="color: #a31515">&quot;1&quot;</span> style=<span style="color: #a31515">&quot;stop-color:#3884FF&quot;</span> /&gt;
+         &lt;/linearGradient&gt;
+     &lt;path fill=<span style="color: #a31515">&quot;url(#SVGID_2_)&quot;</span> d=<span style="color: #a31515">&quot;M412,163.9l15.3,56.4h-60c-6.5,0-11.3,0.8-14.4,2.3c-3.1,1.5-4.6,3.6-4.6,6.3</span>
+     <span style="color: #a31515">			c0,3.1,1.1,6.1,3.4,9.2c3.3,3.7,5.6,6.3,7,8l45.9,50.8c10.2,11.4,17.3,20.4,21.1,26.9c6.3,10.6,9.5,21.4,9.5,32.4</span>
+     <span style="color: #a31515">			c0,14.9-4.3,27.3-12.9,37.3c-11.8,13.9-30,20.8-54.5,20.8h-76l-15.3-55.7h59.4h4.3c4.9,0,9.4-0.7,13.5-2.1c4.1-1.4,6.1-3.8,6.1-7</span>
+     <span style="color: #a31515">			c0-3.1-1.1-6.1-3.4-9.2c-3.3-3.7-5.6-6.3-7-7.9L304.8,282c-12.7-14.7-20.9-26.2-24.8-34.6c-3.9-8.4-5.8-16.8-5.8-25.4</span>
+     <span style="color: #a31515">			c0-14.7,4.4-27.1,13.2-37.3c11.8-13.9,29.9-20.8,54.2-20.8H412z&quot;</span> /&gt;
+       &lt;/g&gt;
+     &lt;g&gt;
+     &lt;linearGradient id=<span style="color: #a31515">&quot;SVGID_3_&quot;</span> gradientUnits=<span style="color: #a31515">&quot;userSpaceOnUse&quot;</span> x1=<span style="color: #a31515">&quot;72.1899&quot;</span> y1=<span style="color: #a31515">&quot;223.0654&quot;</span> x2=<span style="color: #a31515">&quot;289.6655&quot;</span> y2=<span style="color: #a31515">&quot;223.0654&quot;</span>&gt;
+     &lt;stop offset=<span style="color: #a31515">&quot;0&quot;</span> style=<span style="color: #a31515">&quot;stop-color:#1E88E5&quot;</span> /&gt;
+     &lt;stop offset=<span style="color: #a31515">&quot;1&quot;</span> style=<span style="color: #a31515">&quot;stop-color:#3884FF&quot;</span> /&gt;
+         &lt;/linearGradient&gt;
+     &lt;path fill=<span style="color: #a31515">&quot;url(#SVGID_3_)&quot;</span> d=<span style="color: #a31515">&quot;M205.1,348.2H84.4V162.3H150v129.6h37.4c8.8,0,15-0.6,18.7-1.8c6.7-2.2,10.1-6.7,10.1-13.4</span>
+     <span style="color: #a31515">			c0-10.8-8.1-22.7-24.2-35.8c-12.3-10-25.2-18-38.9-24.1l20.2-15.9c9.6-6.5,16.1-11.4,19.6-14.7c8.2-7.5,12.3-14.3,12.3-20.2</span>
+     <span style="color: #a31515">			c0-5.3-2-8.6-6.1-9.8c-4.1-1.2-12.3-1.8-24.5-1.8H72.2l15.3-56.4h118.2c26.5,0,45.9,6.2,58.2,18.7c9.8,9.8,14.7,22.9,14.7,39.5</span>
+     <span style="color: #a31515">			c0,11-3.3,21.5-9.8,31.5c-4.9,7.3-12.7,15.6-23.3,24.8c13.7,9.6,24.2,20.2,31.5,31.8c8.4,13.3,12.6,27.5,12.6,42.8</span>
+     <span style="color: #a31515">			c0,16.9-5.5,30.6-16.5,41C258.8,341.5,236.2,348.2,205.1,348.2z&quot;</span> /&gt;
+       &lt;/g&gt;
+&lt;/svg&gt;
+     </pre></div>
+     
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <!--Customization Section End-->
+
+              <!--Publish Section Start-->
+              <div class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Publishing Applications
+                </h1>
+              </div>
+              <div id="publish">
+                <div class="content">
+                  <h2 class="content-title">
+                    Publish Application to IIS
+                  </h2>
+                  <div class="alert alert-secondary filled-lm" role="alert">
+                    <h4 class="alert-heading">Important note </h4>	
+                    Make sure that you have installed <strong>Net 5.0 SDK</strong> in your  IIS Server <a href="(https://dotnet.microsoft.com/download/dotnet/5.0)" target="_blank" rel="norefferer nofollow"> Download</a>
+                  </div>
+                  <br>
+                  <ul>
+                    <li> Step 1. Select <strong>BlazorStore.Server</strong> as active (startup) project <strong>Publish</strong> </li>
+                    <li> Step 2. Target: choose <strong>Folder</strong> </li>
+                    <div class="card p-0 d-flex justify-content-center">
+                      <img height="450" src="img/publish-1.png" alt="publish-1" class="mr-5" >
+                    </div>
+                    <li> Step 3. Location: Select your IIS web destination folder -  please make sure you open VS under admin to have write privilege to C disk or you can publish to another local disk D then copy it to IIS blazorstore root. </li>
+                    <li> Step 4. Settings: Target net5.0, Deployment Mode Framework-dependent, Target Runtime  Portable  </li>
+                    <li> Step 5. Click <strong>Publish</strong> button to start publishing</li>
+                    <li> Step 6. Once publish done, go to published root folder, create new <strong>Files</strong> folder, as below image:</li>
+                    <div class="card p-0 d-flex justify-content-center">
+                      <img height="450" src="img/publish-2.png" alt="publish-1" class="mr-5" >
+                    </div>
+                  </ul>
+                  <p>Publish Done.</p>
+                  <p>
+                    Video Reference:
+                  </p>
+                  <p class="text-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/GHT7gdfhUNw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </p>
+                </div>
+              </div>
+
+              <!--Credits-->
+              <div id="credit" class="content">
+                <h1 class="content-title font-size-24 text-primary">
+                  Credit
+                </h1>
+              </div>
+              <div class="content">
+                <p>
+                  Special thanks to:
+                </p>
+                <ul>
+                  <li> Blazor Hero - A Clean Architecture Template built for Blazor WebAssembly. </li>
+                  <li> <a href="https://mudblazor.com/" target="_blank" rel="nofollow noopener">MudBlazor</a> - Blazor components for faster and easier web development. </li>
+                  <li> <a href="https://www.gethalfmoon.com/" target="_blank" rel="nofollow noopener">Halfmoon</a> - is a responsive front-end framework, for building this documentation .</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-1">
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom footer start -->
+        <div class="custom-footer">
+          <div class="container-fluid">
+              <div class="row row-eq-spacing-lg">
+                  <div class="col-lg-3">
+                      <div class="content">
+                          <div class="mb-10 navbar-brand">
+                              <img src="img/bs-logo.svg" style="height: 40px!important;" class="img-fluid hidden-dm" alt="bs-logo">
+                              <img src="img/bs-logo.svg" style="height: 40px!important;" class="img-fluid hidden-lm" alt="bs-logo-white">
+                              <span class="text-muted font-size-16 mr-5 mr-sm-10">Blazor Store</span>
+                          </div>
+                          <div>
+                              <a href="https://blazorstore.tlssoftwarevn.com/" class="custom-footer-link">Home</a>
+                          </div>
+                          <div>
+                              <a href="#top" class="custom-footer-link">Documentation</a>
+                          </div>
+                          <div>
+                              <a href="https://www.codecanyon.net/license/" class="custom-footer-link">License <span class="text-monospace font-size-12">(MIT)</span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div class="content">
+                          <h4 class="content-title font-size-16 mb-10">Get in touch</h4>
+                          <div>
+                              <a href="#" class="custom-footer-link">Team</a>
+                          </div>
+                          <div>
+                              <a href="#" target="_blank" rel="noopener" class="custom-footer-link">Report an issue</a>
+                          </div>
+                          <div>
+                              <a href="mailto:thanhlongsolutions4u@gmail.com" target="_blank" rel="noopener" class="custom-footer-link">Contact us</a>
+                          </div>
+                          <div>
+                              <a href="https://facebook.com/thanhlongsolutions" target="_blank" rel="noopener" class="custom-footer-link">
+                                  Follow us on <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div class="content">
+                          <h4 class="content-title font-size-16 mb-10">Legal</h4>
+                          <div>
+                              <a href="#" class="custom-footer-link">Privacy policy</a>
+                          </div>
+                          <div>
+                              <a href="#" class="custom-footer-link">Cookies</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div class="content">
+                          <h4 class="content-title font-size-16 mb-10">Made with <i class="fa fa-heart text-danger ml-5 mr-5" aria-hidden="true"></i> for developers</h4>
+                          <div class="mb-10">
+                              <a href="#top" class="btn btn-primary btn-scroll-to-top" role="button">Scroll to top</a>
+                          </div>
+                          <div class="text-muted">
+                              © Copyright 2021, <a href="https://tlssoftwarevn.com" rel="noopener noreferer nofollow" target="_blank">TLS Software</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Custom footer end -->
+      </div>
+      <!-- Content wrapper end -->
+
+      <!-- Navbar fixed bottom start -->
+      <!--<nav class="navbar navbar-fixed-bottom">
+        
+      </nav>-->
+      <!-- Navbar fixed bottom end -->
+    </div>
+    <!-- Page wrapper end -->
+
+    <!-- Halfmoon JS -->
+    <script src="js/halfmoon.min.js"></script>
+    <script type="text/javascript">
+      // Copies code to the clipboard
+      function copyCode(elem, containerId) {
+          // Copy code to clipboard
+          var range = document.createRange();
+          range.selectNode(document.getElementById(containerId));
+          window.getSelection().removeAllRanges(); // clear current selection
+          window.getSelection().addRange(range); // to select text
+          document.execCommand("copy");
+          window.getSelection().removeAllRanges();// to deselect
+
+          // Show confirmation
+          elem.innerHTML = "<i class='fa fa-check-circle' aria-hidden='true'></i> Copied!";
+
+          // Hide confirmation
+          setTimeout(function() {
+              elem.innerHTML = "<i class='fa fa-clipboard' aria-hidden='true'></i> Copy";
+          }, 2000);
+      }
+  </script>
+  </body>
+</html>

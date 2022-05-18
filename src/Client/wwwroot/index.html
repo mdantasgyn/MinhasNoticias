@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Minhas Notícias</title>
+    <base href="/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link href="css/flag-icons.css" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v6.1.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="css/fa-regular.css" rel="stylesheet">
+    <link href="css/fa-duotone.css" rel="stylesheet">
+    <link href="css/fa-light.css" rel="stylesheet">
+    <link href="css/fa-brands.css" rel="stylesheet">
+    <link href="css/landing.css" rel="stylesheet" />
+    <link href="css/loader.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/auth_1.css" rel="stylesheet" />
+    <link href="css/google-map.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+</head>
+
+<body>
+    <div id="app">
+        <style>
+            @keyframes slide {
+                0% {
+                    transform: translateX(-25%);
+                }
+
+                100% {
+                    transform: translateX(25%);
+                }
+            }
+
+            .mud-wasm {
+                animation: slide 3s ease-in-out infinite alternate;
+                /*background-image: linear-gradient(0deg, #0083FF 0.11%, #0049FF 127.33%);*/
+                background-image: linear-gradient(-60deg, rgba(0,82,204,1) 50%, rgba(38,132,255,1) 50%);
+                bottom: 0;
+                left: -50%;
+                opacity: .5;
+                position: fixed;
+                right: -50%;
+                top: 0;
+                z-index: -1
+            }
+
+            .mud-wasm-cont {
+                left: 50%;
+                padding: 10vmin;
+                position: fixed;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%,-50%)
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                top: 50%;
+                left: 50%;
+            }
+
+            .img {
+                width: 60px;
+                height: 60px;
+                top: 50%;
+                left: 50%;
+            }
+        </style>
+
+        <div style="height:100%;width:100%;margin:0;position:fixed;">
+            <div class="mud-wasm"></div>
+            <div class="mud-wasm" style="animation-direction:alternate-reverse;animation-duration:4s;"></div>
+            <div class="mud-wasm" style="animation-duration:5s;"></div>
+            <div class="mud-wasm-cont ">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="60px" viewBox="0 0 150 60" enable-background="new 0 0 150 60" xml:space="preserve">  <image id="image0" width="150" height="60" x="0" y="0"
+                                                                                                                                                                                                                                                                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA8CAYAAACEhkNqAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    AAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAABmJLR0QA/wD/AP+gvaeTAAAA
+                    CXBIWXMAAC4jAAAuIwF4pT92AAAVhElEQVR42u2deZhU1ZnGf7e6umm6m6ZZBQTRRgRFFJQx6mjE
+                    GLOokyhq3HBf4jqjjMkkLmM0k6hRjJrEKDru4IJBo+MeRXEfN0RR3FFoWtmhobur6e7KH+853HNv
+                    3aq61YvoY73PU0/fqnvucs79zre833due+t/P4FOYhiwvfnsAGwJDAKqgTKgHWgAlgMLgfnAW8C7
+                    wILOXhygogqmvuRx9ZuweVVXnLGIziLZweN6AUcC+wG7AQPytO8LDAd2Bg42vzUCzwPPArcCSzb1
+                    YBTRdShUsIYAJwEnAlt08toVwA/M51zgTuCvwHubelCK6DwSMdsl0cN/HbiYzgtVGH2As4C5wFVA
+                    /009MEV0DnEEqwSYDlyBfKfuRBlwDvAycOAmHZkiOoU4glUFfPcrvq8RwP3AlV/5iBTRJYgjWO3A
+                    qk10f/8J3I00WRHfIMRx3puA01Dk15KnbQo4AfhZF97jYcBQ4EfAui44Xy2KZkcAmwM9zX1/geiQ
+                    OcD/d+H9f1NQBUwGeqCJ/C7wcEdPFkewWhElEBfj6FrBAvhX4B7g35AG7QhGAL8F9iV3cNAMzAMu
+                    B2Z1cT++zuiHonKLF+mEYCWAM4EpaCaDBGMKcFQHz9ldFOV+wLQOHnsg8BJwBPkjznJgFxQFf5vQ
+                    Bmxwvq/tzMmSwJ/M9sfAJ8D3gKnINEzvwDm7k/s+EQnI/xZwzAEoEIhCO7AeTbDK0L713diPryva
+                    gFJnu8NIAs8gsrI/mqnDzL4G4F8AD1EOSeAD4Ms851wAvImkv9Xc6FikCboC1yI/6MMYbYcgVj+M
+                    hcBt5jz15h6HA7siwnYCUNNF9/tNgdeVJ0sCe6MZ+zBwk7NvJJlO7DnA1XnOOQ24BQlVO9JgC5Cj
+                    3BWoQL7A92O0vQD5Di4eR07q8tDv84CHgIuA44DxyInNF7B0Fzwg3c3XKMHXTKuIT5jnhXXe25Eg
+                    4HzPd5Eyc4znHJM2H/dhrMOP5nI53h7xZ80+SLM8YY9c2wKpNkh40K7HUUUmyboI5ThX5jh3K5pg
+                    UfdTjfy0CUiztwDvmPt4JtS2HEXIVrAXowkHcDYKSBagoOQdZOaHmP2rgD+b7eOAH5rj7wNeMb9v
+                    Zn7fCWnbHmac30WT56Us/Ssx15qIJvty4EFESq8nP7Wzt/mMRRH1SuA14BGcogLPqW7YClEKqYiT
+                    JZAQfmpu5PvAH5G028E/xel0+NhR5qE057jh6cAY4uNllAAnmYRPV8OZsz3qG6FKXsK+WMHzMcXc
+                    d0dwgDl26yz7pwE/d773A+rQAwe5EaOA60Pt5qPKkDp8wWow43V26H6XIurleOBCs50NUdZlC8QL
+                    7hbRfjFKrVlf82HTZ4veSNgnZ7neepTuuwKCdMOn5hMHCTMYLvpmadtOvMRyoU7/rkh4nmxrhVED
+                    YEglLGzYKFjDI455pZALOBgP/I3gbJ6PBts+3FMQ53e20+8laMKCtNLJBIUKZ2yW4QvWXJTsD0+C
+                    BUijukL1HorgRhJ8BlOBv+M/01KkHXfN0sdcQlpqzrVXjjaVwB+Qb3p+HJtabjpyG3AD8m9+EdGu
+                    s77IOcCxZGqZXDgVwPOgNQVfNmrboDrUNk3HQugS4C8EhWoKMkETgJnO7/+BTBxkmtGd8FNUnyMN
+                    AdFc2XCnbZ1pD/CY6Uc1Mr37oFKkXRFN9H/OORIo+LI4mkyhuh6YBBwK/CPHGJxLUKgWAYcjBuGi
+                    UNvzgN3iEKTlwG+I53N1BpYS2A75T3EwERiYhqVeAsYNgIU+N78h1NajY/Vn4wiajhn4muRLRAbX
+                    4yfojwZeIOizggogMWN5tbmfE/B9IVcQbfXIX1AAkjbXeRUJ+i+Rv+ZO5kXAUwTNl6vBjgjdz1SC
+                    XN2LiG7qEWpXgjStO67HArPN99nI2rjK5pQk8BMkPHMQdzXSPLCFwJPIL5qKX6g3wjnBOuBpVLS3
+                    yPw2BtgDqe1CGHuLt5HKHgLsmadtX2CvdJqZJaXw87FpHl7okdZTWhrRfigyM4Vgl4hzXI7MQ8KM
+                    j0uljDd/myLOdRPyQyyuynHdRxB5bXGjs32Dsz0YX3vsGzqHFdYeyNm2WEdmgr+F6Ch0FEG34hl8
+                    obK4FrkAlgPbPYlsJ0gl3o8E7Ur0gHcwA/dL0+ZKlBi2WIOiLJdMPNgM3jMoeigU080nyvmOwq7A
+                    TNKwpmVjRAjwBnq4PZ22RxI0F3EQNqnfJXe1x2g0y8MacwOFBQ5X5Nk/ATgDpbls5BkOjuxoVBMU
+                    /sVkEsDZeMZBBK3VJxFtGgj6iP2SKFyswY8GrZSXoyghafalUEkyZrsJaSmrjmtQlGjVbwUKiVPm
+                    woUyuXE5nAlYPiYtj9l04EPEw7m+wRFo8szMc84RKCQ/j0y/bAbyR0oi7rUUaf00mUz+fEQFxMEX
+                    aGJnwxRkRSxeQII4CmnTMFIEqZ7eMe8DMjVv1LEJgsFXcxJppVJ8Rt36BluhRQ8lZqDa8PNs/0CO
+                    cwp/Zk5DZsPOnnGIgV+HfKaFBXQG4vtso4Ga5hQrRg+CyaPS3DjfY1AFIF8mHMncZfpxL7DC+T2J
+                    3IDDkAnqjQRrXuj4Onw+KhfCGqApxjEW68g+EfcmKFR3Ivqh1fx1YYVprbnvPub7YDMurvbOllFZ
+                    gBSDVSp7mu0Gp82eBDX7e0lzQRfWeUvip3fCaMSPaiyGELTFZaYD7jm7AwOBvm3trKgshwE9oXHD
+                    Rtr6AcTbHO60LwGuQyZ9jhmgSjTb93DaWZ/xVbNtx+IMZOYfibiXKWbQLyaTDywhPkpytA9nHP6G
+                    rwzClI0rnA8TpIj+bPr+LFIspxM9mVcBj+JXrGwO3Ixok5XI7746dMy9UVHSTMT37ABcE9p3A9JM
+                    E4HngNXOvlHm753Il/gR8Ds0a7LNvmGmbTUyqeXooc+isHTGQM/jw1QDHLQ1TH8fvmiEPhLnY5Gf
+                    MDF0zAiCgUgYmyH5bAF+bfoFMvF/RwL7nNm/HXKed0bm92I6Xt6TD6tD3/8LKYHRZNJAv0GT6nAU
+                    KJyLL7DDUeA1D02skTmueTFwCL6vdQiyTsvNdSuctq8Ct0QJ1ifm8xmZgvUmcoprCc5uF6+bNkkk
+                    WAmyz74++MvB3ONnURh9UQ3Q1gYDesNJY9Jc+ppHOg2eRwtK7VyJSMe4uBZfuKejaM8GLknEQEex
+                    0LOcNjXO7/n8Gnd/DdnTWw8Bl+E/ZAUv0RhqPkOQz3Y8cLuzP4Fclij0crbfRUHCHfg+9BZkLqqZ
+                    i4S4NRev04J4lFZ84bDOZy7TZtWxzXe1kT0314ofrt+NnNbHzb4PnOvb1NEBRM8sCa6n1rsMgvIS
+                    LO0Ail5PRlrnaKRN++DPtFbTZhFy7u8n03k+F5nAKYhS6W2u22T6+gSqpHjBtPcQ225NaL7Fue/h
+                    C/Iismv5BUhj/AFp4hKkxW5HdMbVSHu2oADmJlQSBRKMz5EG2gEJT6O59nXI3Nm02keh6z6CNPIv
+                    EHPQG5nQJpRhuNU8ryYI5goLwaHI+Y3C7xCpFwdj8Z3jseZB5MIMMok+UDL2CdJQUQknPeoxe7H8
+                    rSzoiVS4fTBrkJauIx4GIK1dgszBp2TSC92NMjTJytAktPSBh7RrA7lLi7ZEQr+Mwlek9zD9r3L6
+                    H4CrsQajWbwSaQ4Xo/HD5zWm7WIy7X0/fKc3DhqRea0mHh2RTcOuSqehshrmfAzPLYGa3OFCk7lu
+                    R7HMfDYlWhCFEUYauSL5sJDCI3WLFHnyv+6DugrZx9tQqYZFKQrRx+HTDg8gxzectiilsJzhx/g8
+                    VJwZH+V3pIFlpUlY0wS3vweNrdCvnG3a00yIuMdcYzGX+FzTpsIoZJJAD7czEyQOjkEK5xYKyLW6
+                    guVF/E0idVce+i1BtABFldzkQzvBCCqBVG2Y1MuGT4GVZWXw1iJ4/HOPLXpBWztHoKioEPwR+VBf
+                    ZxyFigJAPtMx3XitSUjRgAT69LgHulT9hcjps7msWkQ7PEWm999doTTAvyObf03EvigKYj6wljSU
+                    JaF3GbS2d/geu7tisyvgEpPdvd5zsLM9rJADXY31IUFnL4mfUP0qMQYJ8u4R+6LMmsqnPWhpg4YW
+                    qO4B7e3chUytmz/7PT7ftpBg3rOc7jcrXYF0lu3uwG1IwfQnmDzPiyhneA9gf4LS+lViOkovzDXf
+                    K1HmvDeqaQrjJRCH1a8StusL9Y1QXsJHZIbMZ+EL1jKyrxusQUIcZ4Gs5XVWxmhbjTRpvvMWcv0o
+                    9EQTpbMabR3ByReF3kTUukUJ1o7Arzp5Q53BMwTrx3sB/5Ol7SfoHVs0p6B2EPykNs35L3qM7huo
+                    dLBwY8UoAvYcxHGNQT7eXFSu8lioXSnicyaiGe0hfmg2cAkK5a9DQcmziAP6b8Qdpcw9n0cwV1mC
+                    /Lt9UZ52A6IR7sNn/fNhX1TjNQZNyDrEhF9OZhnRbogPG4kEeT2+BixDvF0KJbfbUH7YLhX8AfLt
+                    dkRMwFrzLO5ElFBAsHY0DzFcctyM8kwplGx0bW05Mlml+Hzkh0SXVrgYhtIg65HGyUU1tCPtEvVy
+                    twfNfeF50J6CwZUwuEpmMRl/zUkPFPkeFPq9FjmwJ6L8GOY+7iOzdKYWCdpUpJl+bH7fGwURpU7b
+                    7dBMP8KMWxUiZcN5wG2Bn6KEsS22y8bIn40ie3d/rXlm+yPycx7yqy9BEyNXdmOgGdv9zfcUEqz9
+                    ySw9GowswY+RvMxyh/4alPs6NXTQCiTZR+GbJ5vJHoqc+8cQY/4Y2YvtXRxt2j5LMM8UhVVEO+Lt
+                    BAveaFoPB24Pew2BFc0UgvPxheoJlAfbC596+Ct+heiN+EKVQg9zivn7FBJS1xcsRSb5Z+jh22j6
+                    EPygyF3O9gFKdJ+HOENQKuo0sx3lZ+6FIlorVFehCG6O+T4Ko0kQEX0+Eqr5SMvtjoo67bhegwI3
+                    N81kzer2iL8802xvQ3CF+nEQ1FjZoqgEUpWrkbr/HN/JbzOdd2+gEs3qEnNsG2JnXa1Uh7TQR2Rq
+                    q17mehvMPQ0k2mTPIMQYJ5OwbCUsaYTy+EXIZahUxo7BBch8gNIhV5k230Pm4KdO3ycj7WXR09x3
+                    rfPbYlSbXm++H4kEt8T0cyX+6wxSZv/r5vtS/LWeZyEBjCq/cStNp+H7RXeac41E5nECwXLla/Fr
+                    3X+FhCyBJtQagvlCiydREt4d+5fQYhIwKT13+F9BpGeYWkjjC93ZiJZoNN9LyMwbnopmZ9J81qEZ
+                    Xu+0uQ/5UU3OuSzOMAOTMg+vDL+OyGIDUucB9KiEGfPg5XrYqjp2yLQZfrlPGuXcbJ/dxa7jCPpE
+                    rxMUKvAfumsJPgj13a178tBDt5rmZXyhApnHy1BUtq0Zb1dj2Ulpy47bCfpjDchsnWO+jye43nC0
+                    s72Ds7156PwuLKu/M5pYhxJcjJyGoGBdgGzwjNCJPKSF1ppOrQrti1rUGS7nDeuP9WR/N0J/8r+4
+                    4xpCebB0WsNu84MFxOHuiuNW5B9uMPe8AE2MHmixgVsVmqtwz718uO/JUDvX9wobcJNW34gE+emG
+                    sDC4pHUfpI2eRhr4LGTim/GJ1mZU4xU1TiCt/CekWXuipPv9yFTbotBAJ9uIzn/1RY6tXVTxpLOv
+                    HqnxClQXFLXgtBVlvVebv+7avs3Rq4UqzPVbgO+QG+8TwaiXlsKy1fBsXd48YRhLUW50S/P9ZLK/
+                    wdktFdoJaZGonFncsCFNMNAZjyaVXf6/PdKoIE23gWAJkt2uQ35Uwtzji04bt4J2BdJq+yETO5lg
+                    Uv9ppCHDVbPgp9wuRcEMyHxejp77mW678AAMjDhhD3NzPySzdmcdku47UP1WFJKoludoMmuS+qMa
+                    ocPQDDgOPaxcmEyEtisrgzXr4JHPPPr1pBA0o+jS9vVW5BIkUdQ7Ar3d5hRExlr/qxeKlk9EPtNB
+                    aOKMIT5/VI0ms13NNBBZjF1Q9DUNX1PYqNTtnd3nOs8XmjHdBgU3dunaSvxobjeChZm1yOXYh6Di
+                    CI8T+OsmQbRJAmk/iz7AqLCafp7gi0HCsDNhK+TorUFFZu3EKz+ehDTDfKRCU0hIKmMcC1K3r4V/
+                    9ID2Vni+HnqVKqWTJSavyrJ9menPtubvR2jWVuAvqbcLR05FkWM/Mw7h8bqbYIVHuG/u9xrz90zE
+                    gfU31w8v43oD1V9B0KG2QnYPmvjHm37dHDo+jSaG9e+2xl/MWosUx0pkVZ4juDjEwiqFhSgIAE3I
+                    JQQpqu8AC6xgTUJa4yGCixOzYRyaDS2mUxCvqsEuL78DCdaXxHeHfo1W7mbA86CtFWYs8GhN53yz
+                    yOf4fJirYesR33MR0pz9kDObRgV/N+E7xW8gx/UCFCHagr/1yPF+GwmILT0KlxEtdvZZzfuOOefF
+                    +EV0bch03YwE37LwK5zjXdLzBDQZTkGTtxxN/FdMv1wX5G3T/+GIatg9tO90pGQanGutdp7DFihg
+                    qEECeRLy0XZBvudMW+h3FyqZeQ1FcENMp79Az6kWzZRWJED7ozC8zgxEIzIh+fwji3tMZ0egyCqf
+                    8fotYq4jkfBEhh71mMfc5Rtr3aNQhi934bfiWPQx/U0iIVhCduGvNg+x1LSz0V8Cf7aHr2MXuoJP
+                    qbjoZ86ZQtohnNax7yoDCV+Y10qace2NhLo+tP9gNFGqUMT6qjnPNvg+5NvoWbYQfCPRBucexpj9
+                    75s+lqMocwmw1ArWyWjRwQw0I65Hs2hP/FXS4/EFq9w8pLQZgFZkNuI6ra1IssvIb0LPwn+lTyQK
+                    EKwipLWHIWsRfm//oyil1YqE5OPCTu3DSuONSIrTyI+pwX9Lioek2fJS7no5j469qS9JNPnmYjHi
+                    tB7Mf7oiCsBqJFh9kGvyOj6p6/qTSztycoswpwI+77HW+X4Jch4LWRvXGdyMUhr5XktZROE4Abkf
+                    w4n2WeuRcmko5KRhRCU+wuUf7cifegG9w2FSN3b6BSTARS3VfXgNRYSTkE81GLkwdUh73UsX/Cc2
+                    V7AOQKTf2CxtX0GO394ogjyWrnth7SwUKT7QtWNYRBYsQ1H9DZ09UTa4gnUMyvtYZFtgOdt8LkXc
+                    yUHIB6slPhYjxvlRpJ2+7gsYiigQSaSlyvHJuuWIIMz32sjPEOM7DYXd41BCdRBSr73w67QsH1KP
+                    BOotOukcFvH1RhLZ1KH42ush5LzFXTYFcvTn4Nf/FPEtRxIlmV3mp5mOLeMqooiNSJCZ0D0cRQfF
+                    yKyIDiNJZu1TH/MpaB1ZEUW4SKB0zmlk/nuT5YWfrogihCR+1n57gm8I7tR/fyri240kWiNWQeay
+                    rxrEa6UQI76ioDMX8a1GElWARv27kaH478CaSMfe2V7EtxRJRFwOQabPrQ2yb5ZpYdP9a7UivqH4
+                    JyKRNOkHxK5xAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA1LTExVDExOjU4OjU5KzAwOjAwyunn
+                    6AAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNS0xMVQxMTo1ODo1OSswMDowMLu0X1QAAAAASUVO
+                    RK5CYII=" />
+                </svg>
+                <div class="box">
+                    <img src="images/cerrado/loading-buffering.gif" class="img">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/sounds.js"></script>
+    <script src="js/file.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/google-map.js"></script>
+    <!--<script>navigator.serviceWorker.register('service-worker.js');</script>-->
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/appUpdate.js"></script>
+    <script src="ServiceWorkerRegister.js"></script>
+</body>
+</html>

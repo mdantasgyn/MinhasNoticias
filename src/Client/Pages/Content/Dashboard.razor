@@ -1,0 +1,103 @@
+﻿@page "/dashboard"
+
+
+@attribute [Authorize(Policy = Permissions.Dashboards.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Dashboard> _localizer
+
+<AppTitle Title="@_localizer["Dashboard"]" Description="@_localizer["Realtime Updates & Insights with SignalR"]" />
+@if (!_loaded)
+{
+    <Spinner />
+}
+else
+{
+    <MudGrid Spacing="2">
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.ViewCarousel" Color="Color.Info" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Products"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4 align-self-center">
+                    <MudText  @bind-Value="@ProductCount" Typo="Typo.h5" Style="font-weight: 600;">@ProductCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.PanoramaPhotosphereSelect" Color="Color.Secondary" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto  align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Brands"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4 align-self-center">
+                    <MudText @bind-Value="@BrandCount" Typo="Typo.h5" Style="font-weight: 600;">@BrandCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.AttachFile" Color="Color.Primary" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Documents"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4  align-self-center">
+                    <MudText @bind-Value="@DocumentCount" Typo="Typo.h5" Style="font-weight: 600;">@DocumentCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.FileCopy" Color="Color.Tertiary" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Document Types"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4 align-self-center">
+                    <MudText @bind-Value="@DocumentTypeCount" Typo="Typo.h5" Style="font-weight: 600;">@DocumentTypeCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.Assignment" Color="Color.Error" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Document Extended Attributes"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4 align-self-center">
+                    <MudText @bind-Value="@DocumentExtendedAttributeCount" Typo="Typo.h5" Style="font-weight: 600;">@DocumentExtendedAttributeCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.Face" Color="Color.Success" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Registered Users"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4 align-self-center">
+                    <MudText @bind-Value="@UserCount" Typo="Typo.h5" Style="font-weight: 600;">@UserCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="25" Class="d-flex rounded-xl" Style="height:100px;">
+                <MudIcon Icon="@Icons.Material.TwoTone.Groups" Color="Color.Warning" Class="ma-3 align-self-center" Size="Size.Large"></MudIcon>
+                <MudPaper Elevation="0" Class="pa-0 mr-auto align-self-center">
+                    <MudText Typo="Typo.subtitle1">@_localizer["Registered Roles"]</MudText>
+                </MudPaper>
+                <MudPaper Elevation="0" Class="pa-4 align-self-center">
+                    <MudText @bind-Value="@RoleCount" Typo="Typo.h5" Style="font-weight: 600;">@RoleCount</MudText>
+                </MudPaper>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="8">
+            <MudPaper Elevation="25" Class="pa-4 rounded-xl" Style="height:400px;">
+                <MudChart ChartType="ChartType.Bar" ChartSeries="@_dataEnterBarChartSeries" XAxisLabels="@_dataEnterBarChartXAxisLabels.Select(a => _localizer[a].Value).ToArray()" Width="100%" Height="300px"></MudChart>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudPaper Elevation="25" Class="pa-4 rounded-xl" Style="height:400px;">
+                @_localizer["Charts comming soon..."]
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}

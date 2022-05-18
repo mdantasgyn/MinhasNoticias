@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>MinhasNoticias.Infrastructure.Shared</RootNamespace>
+    <AssemblyName>MinhasNoticias.Infrastructure.Shared</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.14.0" />
+    <PackageReference Include="MimeKit" Version="2.14.0" />
+  </ItemGroup>
+</Project>

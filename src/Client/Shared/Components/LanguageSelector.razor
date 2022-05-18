@@ -1,0 +1,62 @@
+﻿@using MinhasNoticias.Shared.Constants.Localization
+@inject Microsoft.Extensions.Localization.IStringLocalizer<LanguageSelector> _localizer
+
+<style>
+    .mud-button {
+        text-transform: capitalize !important;
+    }
+</style>
+
+<MudMenu Direction="Direction.Bottom" OffsetY="true" Dense="true">
+    <ActivatorContent>
+        @*<MudIcon Icon="@Icons.Material.Outlined.Translate" Class="mx-2" Color="Color.Inherit"></MudIcon>*@
+        @foreach (var language in LocalizationConstants.SupportedLanguages)
+        {
+            if(language.Code == currentLanguageCode)
+            {
+                <MudButton Color="Color.Inherit" Class="mx-2" Variant="Variant.Outlined" DisableElevation StartIcon="@language.FlagIcon" Size="Size.Small"> @language.DisplayName </MudButton>
+            }
+        }
+    </ActivatorContent>
+    <ChildContent>
+        <MudList Class="" Clickable="true" @bind-SelectedItem="SelectedItem">
+            @foreach (var language in LocalizationConstants.SupportedLanguages)
+            {
+                <MudListItem Icon="@(language.FlagIcon)" IconSize="Size.Small" Text="@(language.DisplayName)" OnClick="(()=> ChangeLanguageAsync(language.Code))" Value="@(language.Code)" />
+            }
+        </MudList>
+        
+        @*@foreach (var language in LocalizationConstants.SupportedLanguages)
+        {
+            <MudMenuItem OnClick="(()=> ChangeLanguageAsync(language.Code))">@_localizer[language.DisplayName]</MudMenuItem>
+        }*@
+    </ChildContent>
+</MudMenu>
+
+@code
+{
+    private MudListItem SelectedItem { get; set; }
+    private string currentLanguageCode = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentLanguageCode = await _clientPreferenceManager.LanguageCode();
+    }
+
+    private async Task ChangeLanguageAsync(string languageCode)
+    {
+        var result = await _clientPreferenceManager.ChangeLanguageAsync(languageCode);
+        if (result.Succeeded)
+        {
+            _snackBar.Add(result.Messages[0], Severity.Success);
+            _navigationManager.NavigateTo(_navigationManager.Uri, forceLoad: true);
+        }
+        else
+        {
+            foreach (var error in result.Messages)
+            {
+                _snackBar.Add(error, Severity.Error);
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+﻿@inherits LayoutComponentBase
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> _localizer
+
+<MudRTLProvider RightToLeft="@_rightToLeft">
+    <audio id="notification" src="/media/notification.mp3" />
+    <MudThemeProvider Theme="_currentTheme" />
+    @*<MudThemeProvider Theme="_themeManager.Theme" />*@
+    <MudDialogProvider DisableBackdropClick="true"/>
+    <MudSnackbarProvider />
+    <CascadingValue Value="this">
+        <AuthorizeView>
+            <NotAuthorized>
+                @if (IsFirstVisit)
+                {
+                    <LayoutView Layout="@typeof(Walkthough)">
+                    </LayoutView>
+                }
+                else
+                {
+                    @*<MudAppBar Elevation="4" Color="Color.Primary">
+                            <MudSpacer />
+                            <LanguageSelector />
+                            <MudTooltip Text="@_localizer["Toggle Dark Mode"]">
+                                <MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="@((e) => DarkMode())" />
+                            </MudTooltip>
+                        </MudAppBar>*@
+                    <MudPaper Elevation="0" Style="width: 100%; height: 100vh; background-color: transparent;">
+                        @*<MudItem xs="0" sm="3" md="3" lg="4" xl="4"></MudItem>*@
+                        <MudItem xs="12" sm="12" md="12" lg="12" xl="12">
+                            @Body
+                        </MudItem>
+                        @*<MudItem xs="0" sm="3" md="3" lg="4" xl="4"></MudItem>*@
+                    </MudPaper>
+                }
+            </NotAuthorized>
+            <Authorized>
+                <MudLayout>
+                    @*<MudThemeProvider Theme="_themeManager.Theme" />
+                    <MudThemeManagerButton OnClick="@((e) => OpenThemeManager(true))" />
+                    <MudThemeManager Open="_themeManagerOpen" OpenChanged="OpenThemeManager" Theme="_themeManager" ThemeChanged="UpdateTheme" />*@
+                    <MainBody OnDarkModeToggle="@DarkMode" OnRightToLeftToggle="@RightToLeftToggle">
+                        @Body
+                    </MainBody>
+                </MudLayout>
+            </Authorized>
+        </AuthorizeView>
+    </CascadingValue>
+
+</MudRTLProvider>

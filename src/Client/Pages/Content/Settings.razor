@@ -1,0 +1,86 @@
+﻿@page "/settings"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Settings> _localizer
+@inject IDialogService DialogService
+
+<MudText Color="Color.Default" Class="mt-5 mb-1" Typo="Typo.h6">Utilities</MudText>
+<MudGrid Spacing="2">
+    <MudItem xs="6" sm="6" md="4">
+        <MudCard Elevation="25" Class="rounded-xl" @onclick="@(() => NavigateToOrderHistory())">
+            <MudCardContent>
+                <div class="mb-1">
+                    <MudIcon Icon="@Icons.Material.TwoTone.History" Color="Color.Success" Size="Size.Large" Title="Orders" />
+                </div>
+                <MudText Typo="Typo.body1" Align="Align.Left">Order history</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="6" sm="6" md="4">
+        <MudCard Elevation="25" Class="rounded-xl">
+            <MudCardContent>
+                <div class="mb-1">
+                    <MudIcon Icon="@Icons.Material.TwoTone.Loyalty" Color="Color.Warning" Size="Size.Large" Title="Rewards" />
+                </div>
+                <MudText Typo="Typo.body1" Align="Align.Left">Store rewards</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="12" md="4">
+        <MudCard Elevation="25" Class="rounded-xl">
+            <MudCardContent>
+                <div class="mb-1">
+                    <MudIcon Icon="@Icons.Material.TwoTone.GifBox" Color="Color.Secondary" Size="Size.Large" Title="Vouchers" />
+                </div>
+                <MudText Typo="Typo.body1" Align="Align.Left">Vouchers</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+<MudText Color="Color.Default" Class="mt-5 mb-1" Typo="Typo.h6">Account</MudText>
+<MudCard Elevation="25" Class="rounded-xl">
+    <MudCardContent Class="page-bg py-3">
+        <MudList Clickable="true" Class="py-0">
+            <MudListItem OnClick="(() => InvokeAccountInfoModal())" Text="Account Info" IconColor="Color.Tertiary" Icon="@Icons.Material.TwoTone.AccountCircle" />
+            <MudDivider />
+            <MudListItem Text="Payment" Icon="@Icons.Material.Filled.CreditCard" />
+            <MudDivider />
+            <MudListItem Text="Settings" Icon="@Icons.Material.Filled.Settings" />
+            <MudDivider />
+            <MudListItem OnClick="(() => InvokeLanguageSelectionModal())" Text="Language" IconColor="Color.Success" Icon="@Icons.Material.TwoTone.Language" />
+            <MudDivider />
+            <MudListItem Text="@_localizer["Logout"]" IconColor="Color.Error" Icon="@Icons.Material.Filled.Logout" OnClick="Logout" />
+        </MudList>
+    </MudCardContent>
+</MudCard>
+
+<MudText Color="Color.Default" Class="mt-5 mb-1" Typo="Typo.h6">System</MudText>
+<MudCard Elevation="25" Class="rounded-xl">
+    <MudCardContent Class="page-bg py-3">
+        <MudList Class="py-0">
+            <MudListItem Icon="@Icons.Material.TwoTone.Brightness4" IconColor="Color.Info">
+                <MudPaper Elevation="0" Class="pa-0 d-flex justify-space-between">
+                    <MudText Typo="Typo.body1" Color="Color.Default" Class="align-self-center">Dark Mode</MudText>
+                    <MudSwitch CheckedChanged="@((e) => ToggleDarkModeAsync(e))" T="bool" Checked="@DarkMode" Color="Color.Tertiary" Class="align-self-center mr-n5" />
+                </MudPaper>
+            </MudListItem>
+            <MudDivider />
+            <MudListItem Icon="@Icons.Material.TwoTone.FormatTextdirectionRToL" IconColor="Color.Primary">
+                <MudPaper Elevation="0" Class="pa-0 d-flex justify-space-between">
+                    <MudText Typo="Typo.body1" Color="Color.Default" Class="align-self-center">RTL Mode</MudText>
+                    <MudSwitch CheckedChanged="@((e) => ToggleRTLModeAsync(e))" T="bool" Checked="@IsRTL" Color="Color.Tertiary" Class="align-self-center mr-n5" />
+                </MudPaper>
+            </MudListItem>
+        </MudList>
+    </MudCardContent>
+</MudCard>
+
+<MudText Color="Color.Default" Class="mt-5 mb-1" Typo="Typo.h6">Support</MudText>
+<MudCard Elevation="25" Class="rounded-xl">
+    <MudCardContent Class="page-bg py-3">
+        <MudList Clickable="true" Class="py-0">
+            <MudListItem Text="Terms" Icon="@Icons.Material.TwoTone.FilePresent" IconColor="Color.Default"/>
+            <MudDivider />
+            <MudListItem Text="Help" Icon="@Icons.Material.TwoTone.Help" IconColor="Color.Info"/>
+        </MudList>
+    </MudCardContent>
+</MudCard>
