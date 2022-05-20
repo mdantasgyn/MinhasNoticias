@@ -49,20 +49,20 @@ namespace MinhasNoticias.Infrastructure
             Task.Run(async () =>
             {
                 //Check if Role Exists
-                var adminRole = new AppRole(RoleConstants.AdministratorRole, _localizer["Administrator role with full permissions"]);
+                var adminRole = new AppRole(RoleConstants.AdministratorRole, _localizer["Função de administrador com permissões totais"]);
                 var adminRoleInDb = await _roleManager.FindByNameAsync(RoleConstants.AdministratorRole);
                 if (adminRoleInDb == null)
                 {
                     await _roleManager.CreateAsync(adminRole);
                     adminRoleInDb = await _roleManager.FindByNameAsync(RoleConstants.AdministratorRole);
-                    _logger.LogInformation(_localizer["Seeded Administrator Role."]);
+                    _logger.LogInformation(_localizer["Função de administrador com permissões totais."]);
                 }
                 //Check if User Exists
                 var superUser = new AppUser
                 {
                     FirstName = "Admin",
                     LastName = "",
-                    Email = "admin@blazorstore.com",
+                    Email = "tasso@cerradoinformatica.com.br",
                     UserName = "admin",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
@@ -76,7 +76,7 @@ namespace MinhasNoticias.Infrastructure
                     var result = await _userManager.AddToRoleAsync(superUser, RoleConstants.AdministratorRole);
                     if (result.Succeeded)
                     {
-                        _logger.LogInformation(_localizer["Seeded Default SuperAdmin User."]);
+                        _logger.LogInformation(_localizer["Usuário SuperAdmin padrão propagado."]);
                     }
                     else
                     {
@@ -98,20 +98,20 @@ namespace MinhasNoticias.Infrastructure
             Task.Run(async () =>
             {
                 //Check if Role Exists
-                var basicRole = new AppRole(RoleConstants.BasicRole, _localizer["Basic role with default permissions"]);
+                var basicRole = new AppRole(RoleConstants.BasicRole, _localizer["Funções basicas com permissões padrão"]);
                 var basicRoleInDb = await _roleManager.FindByNameAsync(RoleConstants.BasicRole);
                 if (basicRoleInDb == null)
                 {
                     await _roleManager.CreateAsync(basicRole);
-                    _logger.LogInformation(_localizer["Seeded Basic Role."]);
+                    _logger.LogInformation(_localizer["Papel Básico Semeado."]);
                 }
                 //Check if User Exists
                 var basicUser = new AppUser
                 {
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Email = "john@blazorstore.com",
-                    UserName = "johndoe",
+                    FirstName = "Usuario",
+                    LastName = "Comum",
+                    Email = "cerrado@cerradoinformatica.com.br",
+                    UserName = "cerrado",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     CreatedOn = DateTime.Now,
@@ -122,7 +122,7 @@ namespace MinhasNoticias.Infrastructure
                 {
                     await _userManager.CreateAsync(basicUser, UserConstants.DefaultPassword);
                     await _userManager.AddToRoleAsync(basicUser, RoleConstants.BasicRole);
-                    _logger.LogInformation(_localizer["Seeded User with Basic Role."]);
+                    _logger.LogInformation(_localizer["Funções basicas com permissões padrão."]);
                 }
             }).GetAwaiter().GetResult();
         }

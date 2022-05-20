@@ -54,16 +54,5 @@ namespace MinhasNoticias.Client.Pages.Authentication
             }
         }
 
-        private void FillAdministratorCredentials()
-        {
-            _tokenModel.Email = "admin@blazorstore.com";
-            _tokenModel.Password = "123Pa$$word!";
-        }
-
-        private void FillBasicUserCredentials()
-        {
-            _tokenModel.Email = "john@blazorstore.com";
-            _tokenModel.Password = "123Pa$$word!";
-        }
     }
 }
