@@ -130,7 +130,7 @@ namespace MinhasNoticias.Server.Extensions
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
-                    Description = localizer["Input your Bearer token in this format - Bearer {your token here} to access this API"],
+                    Description = localizer["Insira seu token de portador neste formato - portador {seu token aqui} para acessar esta API"],
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
