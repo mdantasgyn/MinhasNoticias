@@ -27,19 +27,19 @@
                     <MudMenuItem Link="/account">
                         <div class="d-flex">
                             <MudIcon Class="mx-2" Icon="@Icons.Material.Outlined.Person" />
-                            <MudText>@_localizer["Account"]</MudText>
+                            <MudText>@_localizer["Conta"]</MudText>
                         </div>
                     </MudMenuItem>
-                    <MudMenuItem Link="/settings">
+@*                    <MudMenuItem Link="/settings">
                         <div class="d-flex">
                             <MudIcon Class="mx-2" Icon="@Icons.Material.Outlined.SettingsApplications" />
-                            <MudText>@_localizer["Settings"]</MudText>
+                            <MudText>@_localizer["Preferências"]</MudText>
                         </div>
                     </MudMenuItem>
-                    <div class="mt-4 mx-4">
+*@                    <div class="mt-4 mx-4">
                         <MudButton Color="Color.Error" FullWidth="true" Class="rounded-lg" StartIcon="@Icons.Material.Filled.Logout"
                             Variant="Variant.Filled" OnClick="Logout">
-                            Logout
+                            Sair
                         </MudButton>
                     </div>
                 </div>
@@ -66,11 +66,9 @@
     <MudHidden Breakpoint="Breakpoint.MdAndDown" Invert="true" >
         <CopyrightFooter></CopyrightFooter>
         <BottomNavMenu>
-            <BottomNavMenuItem Href="/stories" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.AccessTime" IconColor="Color.Error" Title="Stories"></BottomNavMenuItem>
-            <BottomNavMenuItem Href="/shopping" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.ShoppingBag" IconColor="Color.Primary" Title="Shopping"></BottomNavMenuItem>
-            <BottomNavMenuItem Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.Cottage" IconColor="Color.Secondary" Title="Home"></BottomNavMenuItem>
-            <BottomNavMenuItem Href="/pages" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.Pages" IconColor="Color.Tertiary" Title="Pages"></BottomNavMenuItem>
-            <BottomNavMenuItem Href="/settings" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.Settings" IconColor="Color.Warning" Title="Settings"></BottomNavMenuItem>
+            <BottomNavMenuItem Href="/enquetes" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.AccessTime" IconColor="Color.Error" Title="Enquetes"></BottomNavMenuItem>
+            <BottomNavMenuItem Href="/sugestoes" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.ShoppingBag" IconColor="Color.Primary" Title="Sugestões"></BottomNavMenuItem>
+            <BottomNavMenuItem Href="/noticias" Match="NavLinkMatch.All" Icon="@Icons.Material.TwoTone.Cottage" IconColor="Color.Secondary" Title="Notícias"></BottomNavMenuItem>
         </BottomNavMenu>
     </MudHidden>
 </MudMainContent>

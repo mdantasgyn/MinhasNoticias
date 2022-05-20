@@ -13,13 +13,13 @@ namespace MinhasNoticias.Client.Pages.Identity
 
         private async Task ChangePasswordAsync()
         {
-            _snackBar.Add("Function is disabled in demo mode!", Severity.Warning);
-            return;
+            //_snackBar.Add("A função está desativada!", Severity.Warning);
+            //return;
             
             var response = await _accountManager.ChangePasswordAsync(_passwordModel);
             if (response.Succeeded)
             {
-                _snackBar.Add(_localizer["Password Changed!"], Severity.Success);
+                _snackBar.Add(_localizer["Senha alterada!"], Severity.Success);
                 _passwordModel.Password = string.Empty;
                 _passwordModel.NewPassword = string.Empty;
                 _passwordModel.ConfirmNewPassword = string.Empty;

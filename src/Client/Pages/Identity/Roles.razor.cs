@@ -73,13 +73,13 @@ namespace MinhasNoticias.Client.Pages.Identity
 
         private async Task Delete(string id)
         {
-            string deleteContent = _localizer["Delete Content"];
+            string deleteContent = _localizer["Excluir conteúdo"];
             var parameters = new DialogParameters
             {
                 {nameof(Shared.Dialogs.DeleteConfirmation.ContentText), string.Format(deleteContent, id)}
             };
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, DisableBackdropClick = true };
-            var dialog = _dialogService.Show<Shared.Dialogs.DeleteConfirmation>(_localizer["Delete"], parameters, options);
+            var dialog = _dialogService.Show<Shared.Dialogs.DeleteConfirmation>(_localizer["Excluir"], parameters, options);
             var result = await dialog.Result;
             if (!result.Cancelled)
             {
@@ -118,7 +118,7 @@ namespace MinhasNoticias.Client.Pages.Identity
                 }
             }
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, DisableBackdropClick = true };
-            var dialog = _dialogService.Show<RoleModal>(id == null ? _localizer["Create"] : _localizer["Edit"], parameters, options);
+            var dialog = _dialogService.Show<RoleModal>(id == null ? _localizer["Criar"] : _localizer["Editar"], parameters, options);
             var result = await dialog.Result;
             if (!result.Cancelled)
             {

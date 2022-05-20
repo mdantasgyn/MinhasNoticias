@@ -14,100 +14,33 @@
 
 <MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Home" IconColor="Color.Primary">@_localizer["Home"]</MudNavLink>
-    <MudNavLink Href="/noticias" Target="_blank" Icon="@Icons.Material.Outlined.LiveHelp" IconColor="Color.Tertiary">
+    <MudNavLink Href="/noticias" Target="_blank" Icon="@Icons.Material.Outlined.Newspaper" IconColor="Color.Tertiary">
         Notícias
     </MudNavLink>
-
-    <MudListSubheader Class="mt-2 mb-n2">@_localizer["Templates"]</MudListSubheader>
-    <MudNavLink Href="/pages" Icon="@Icons.Material.Outlined.CardGiftcard" IconColor="Color.Error">
-            @_localizer["Pages"]
+    <MudNavLink Href="/noticias" Target="_blank" Icon="@Icons.Material.Outlined.Subject" IconColor="Color.Tertiary">
+        Sugestões
     </MudNavLink>
-    <MudNavLink Href="/settings" Icon="@Icons.Material.Outlined.SettingsApplications" IconColor="Color.Default">
-            @_localizer["Settings"]
+    <MudNavLink Href="/noticias" Target="_blank" Icon="@Icons.Material.Outlined.QuestionAnswer" IconColor="Color.Tertiary">
+        Enquetes
     </MudNavLink>
-
-    <MudListSubheader Class="mt-2 mb-n2">@_localizer["Personal"]</MudListSubheader>
-    @if (_canViewDashboards)
-    {
-        <MudNavLink Href="/dashboard" Icon="@Icons.Material.Outlined.Dashboard" IconColor="Color.Info">
-            @_localizer["Dashboard"]
-        </MudNavLink>
-    }
-    <MudNavLink Href="/account" Icon="@Icons.Material.Outlined.SupervisorAccount" IconColor="Color.Warning">
-        @_localizer["Account"]
-    </MudNavLink>
-    @if (_canViewAuditTrails)
-    {
-        <MudNavLink Href="/audit-trails" Icon="@Icons.Material.Outlined.Security" IconColor="Color.Error">
-            @_localizer["Audit Trails"]
-        </MudNavLink>
-    }
-    @if (_canViewDocuments || _canViewDocumentTypes)
-    {
-        <MudListSubheader Class="mt-2 mb-n2">@_localizer["Document Management"]</MudListSubheader>
-        @if (_canViewDocuments)
-        {
-            <MudNavLink Href="/document-store" Icon="@Icons.Material.Outlined.AttachFile" IconColor="Color.Primary">
-                @_localizer["Document Store"]
-            </MudNavLink>
-        }
-        @if (_canViewDocumentTypes)
-        {
-            <MudNavLink Href="/document-types" Icon="@Icons.Material.Outlined.FileCopy" IconColor="Color.Secondary">
-                @_localizer["Document Types"]
-            </MudNavLink>
-        }
-    }
 
     @if (_canViewUsers || _canViewRoles)
     {
-        <MudListSubheader Class="mt-2 mb-n2">@_localizer["Administrator"]</MudListSubheader>
+        <MudListSubheader Class="mt-2 mb-n2">@_localizer["Administrador"]</MudListSubheader>
         @if (_canViewUsers)
         {
             <MudNavLink Href="/identity/users" Icon="@Icons.Material.Outlined.Person" IconColor="Color.Success">
-                @_localizer["Users"]
+                @_localizer["Usuários"]
             </MudNavLink>
         }
         @if (_canViewRoles)
         {
             <MudNavLink Href="/identity/roles" Icon="@Icons.Material.Outlined.SupervisedUserCircle" IconColor="Color.Default">
-                @_localizer["Roles"]
+                @_localizer["Funções"]
             </MudNavLink>
         }
     }
-    @if (_canViewChat)
-    {
-        <MudListSubheader Class="mt-2 mb-n2">@_localizer["Communication"]</MudListSubheader>
-        <MudNavLink Href="/chat" Icon="@Icons.Material.Outlined.MarkChatUnread" IconColor="Color.Primary">
-            @_localizer["Chat"]
-        </MudNavLink>
-    }
-    @if (_canViewProducts || _canViewBrands)
-    {
-        <MudListSubheader Class="mt-2 mb-n2">@_localizer["Catalog Management"]</MudListSubheader>
-        @if (_canViewProducts)
-        {
-            <MudNavLink Href="/catalog/products" Icon="@Icons.Material.Outlined.CallToAction" IconColor="Color.Warning">
-                @_localizer["Products"]
-            </MudNavLink>
-        }
-        @if (_canViewBrands)
-        {
-            <MudNavLink Href="/catalog/brands" Icon="@Icons.Material.Outlined.CallToAction" IconColor="Color.Info">
-                @_localizer["Brands"]
-            </MudNavLink>
-        }
-    }
-
     <MudDivider Class="mt-3 mb-6 mx-3"></MudDivider>
-
-    <div class="d-flex justify-space-around mx-3 mb-5">
-        <MudIconButton Link="mailto:info@tlssoftwarevn.com" Size="Size.Small" Icon="fas fa-envelope" Target="_blank" Variant="Variant.Text" Color="Color.Error"></MudIconButton>
-        <MudIconButton Link="https://facebook.com/thanhlongsolutions" Size="Size.Small" Icon="fab fa-facebook" Target="_blank" Variant="Variant.Text" Class="facebook-color"></MudIconButton>
-        <MudIconButton Link="https://twitter.com" Size="Size.Small" Icon="fab fa-twitter" Target="_blank" Variant="Variant.Text" Class="twitter-color"></MudIconButton>
-        <MudIconButton Link="https://web.whatsapp.com/" Size="Size.Small" Icon="fab fa-whatsapp" Target="_blank" Variant="Variant.Text" Class="whatsapp-color"></MudIconButton>
-        <MudIconButton Link="https://www.instagram.com/" Size="Size.Small" Icon="fab fa-instagram" Target="_blank" Variant="Variant.Text" Class="instagram-color"></MudIconButton>
-    </div>
 </MudNavMenu>
 
 @code {

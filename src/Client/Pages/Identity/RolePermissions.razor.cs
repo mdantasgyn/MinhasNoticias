@@ -64,7 +64,7 @@ namespace MinhasNoticias.Client.Pages.Identity
             if (result.Succeeded)
             {
                 _model = result.Data;
-                GroupedRoleClaims.Add(_localizer["All Permissions"], _model.RoleClaims);
+                GroupedRoleClaims.Add(_localizer["Todas as permissões"], _model.RoleClaims);
                 foreach (var claim in _model.RoleClaims)
                 {
                     if (GroupedRoleClaims.ContainsKey(claim.Group))
@@ -78,7 +78,7 @@ namespace MinhasNoticias.Client.Pages.Identity
                 }
                 if (_model != null)
                 {
-                    Description = string.Format(_localizer["Manage {0} {1}'s Permissions"], _model.RoleId, _model.RoleName);
+                    Description = string.Format(_localizer["Gerenciar as permissões de {0} {1}"], _model.RoleId, _model.RoleName);
                 }
             }
             else
@@ -93,7 +93,7 @@ namespace MinhasNoticias.Client.Pages.Identity
 
         private async Task SaveAsync()
         {
-            _snackBar.Add("Function is disabled in demo mode!", Severity.Warning);
+            _snackBar.Add("A função está desativada no modo de demonstração!", Severity.Warning);
             return;
             
             var request = _mapper.Map<PermissionResponse, PermissionRequest>(_model);

@@ -27,7 +27,7 @@ namespace MinhasNoticias.Client.Pages.Identity
             var result = await _userManager.ToggleUserStatusAsync(request);
             if (result.Succeeded)
             {
-                _snackBar.Add(_localizer["Updated User Status."], Severity.Success);
+                _snackBar.Add(_localizer["Status de usuário atualizado."], Severity.Success);
                 _navigationManager.NavigateTo("/identity/users");
             }
             else
@@ -61,7 +61,7 @@ namespace MinhasNoticias.Client.Pages.Identity
                         ImageDataUrl = data.Data;
                     }
                 }
-                Title = $"{_firstName} {_lastName}'s {_localizer["Profile"]}";
+                Title = $"{_firstName} {_lastName}'s {_localizer["Perfil"]}";
                 Description = _email;
                 if (_firstName.Length > 0)
                 {

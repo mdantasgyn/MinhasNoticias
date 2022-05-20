@@ -43,7 +43,7 @@ namespace MinhasNoticias.Client.Pages.Identity
                 if (user != null)
                 {
                     Title = $"{user.FirstName} {user.LastName}";
-                    Description = string.Format(_localizer["Manage {0} {1}'s Roles"], user.FirstName, user.LastName);
+                    Description = string.Format(_localizer["Gerenciar as funções de {0} {1}"], user.FirstName, user.LastName);
                     var response = await _userManager.GetRolesAsync(user.Id);
                     UserRolesList = response.Data.UserRoles;
                 }
@@ -54,8 +54,6 @@ namespace MinhasNoticias.Client.Pages.Identity
 
         private async Task SaveAsync()
         {
-            _snackBar.Add("Function is disabled in demo mode!", Severity.Warning);
-            return;
 
             var request = new UpdateUserRolesRequest()
             {

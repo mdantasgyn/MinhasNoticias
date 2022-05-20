@@ -10,7 +10,7 @@
     }
 </style>
 
-<AppTitle Title="@_localizer["Roles"]" Description="@_localizer["Manage Roles."]" />
+<AppTitle Title="@_localizer["Funções"]" Description="@_localizer["Gerenciar funções."]" />
 @if (!_loaded)
 {
     <Spinner />
@@ -21,12 +21,12 @@ else
         <div class="mb-3">
             @if (_canCreateRoles)
                 {
-                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => InvokeModal())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface" Size="Size.Small">@_localizer["Create"]</MudButton>
-                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary" Size="Size.Small">@_localizer["Reload"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => InvokeModal())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface" Size="Size.Small">@_localizer["Criar"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary" Size="Size.Small">@_localizer["Recarregar"]</MudButton>
                 }
                 else
                 {
-                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary" Size="Size.Small">@_localizer["Reload"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary" Size="Size.Small">@_localizer["Recarregar"]</MudButton>
                 }
         </div>
     </MudHidden>
@@ -36,12 +36,12 @@ else
                 <div class="justify-center mud-text-align-center">
                 @if (_canCreateRoles)
                 {
-                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => InvokeModal())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface">@_localizer["Create"]</MudButton>
-                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => InvokeModal())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface">@_localizer["Criar"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Recarregar"]</MudButton>
                 }
                 else
                 {
-                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetRolesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Recarregar"]</MudButton>
                 }
             </div>
             </MudHidden>
@@ -49,39 +49,39 @@ else
             <MudSpacer />
             @if (_canSearchRoles)
             {
-                <MudTextField @bind-Value="_searchString" Immediate="true" Placeholder="@_localizer["Search for Roles..."]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
+                <MudTextField @bind-Value="_searchString" Immediate="true" Placeholder="@_localizer["Pesquisar funções..."]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
             }
         </ToolBarContent>
         <HeaderContent>
             <MudTh><MudTableSortLabel SortBy="new Func<RoleResponse, object>(x => x.Id)">@_localizer["Id"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel SortBy="new Func<RoleResponse, object>(x => x.Name)">@_localizer["Role"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel SortBy="new Func<RoleResponse, object>(x => x.Description)">@_localizer["Description"]</MudTableSortLabel></MudTh>
-            <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<RoleResponse, object>(x => x.Name)">@_localizer["Função"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<RoleResponse, object>(x => x.Description)">@_localizer["Descrição"]</MudTableSortLabel></MudTh>
+            <MudTh Style="text-align:right">@_localizer["Ações"]</MudTh>
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="Id">@context.Id</MudTd>
-            <MudTd DataLabel="@_localizer["Role"]">
+            <MudTd DataLabel="@_localizer["Função"]">
                 <MudHighlighter Text="@context.Name" HighlightedText="@_searchString" />
             </MudTd>
-            <MudTd DataLabel="@_localizer["Description"]">
+            <MudTd DataLabel="@_localizer["Descrição"]">
                 <MudHighlighter Text="@context.Description" HighlightedText="@_searchString" />
             </MudTd>
-            <MudTd DataLabel="@_localizer["Actions"]" Style="text-align: right">
+            <MudTd DataLabel="@_localizer["Ações"]" Style="text-align: right">
                 @if (_canViewRoleClaims || _canEditRoles || _canDeleteRoles)
                     {
                         <MudHidden Breakpoint="Breakpoint.MdAndDown" Invert="false">
-                            <MudMenu Label="@_localizer["Actions"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
+                            <MudMenu Label="@_localizer["Ações"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
                                 @if (_canViewRoleClaims)
                                     {
-                                    <MudMenuItem @onclick="@(() => ManagePermissions(@context.Id))">@_localizer["Manage Permission"]</MudMenuItem>
+                                    <MudMenuItem @onclick="@(() => ManagePermissions(@context.Id))">@_localizer["Gerenciar permissão"]</MudMenuItem>
                                     }
                                 @if (_canEditRoles)
                                     {
-                                    <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Edit"]</MudMenuItem>
+                                    <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Editar"]</MudMenuItem>
                                     }
                                 @if (_canDeleteRoles)
                                     {
-                                    <MudMenuItem @onclick="@(() => Delete(@context.Id))">@_localizer["Delete"]</MudMenuItem>
+                                    <MudMenuItem @onclick="@(() => Delete(@context.Id))">@_localizer["Excluir"]</MudMenuItem>
                                     }
                             </MudMenu>
                         </MudHidden>
@@ -111,16 +111,11 @@ else
                                IconColor="Color.Secondary"
                                Size="Size.Small"
                                Color="Color.Surface">
-                        @_localizer["No Allowed Actions"]
+                        @_localizer["Nenhuma ação permitida"]
                     </MudButton>
                     }
             </MudTd>
         </RowTemplate>
-        <FooterContent>
-            <MudSwitch @bind-Checked="@_dense" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Dense"]</MudSwitch>
-            <MudSwitch @bind-Checked="@_striped" Color="Color.Tertiary" Style="margin-left: 5px;">@_localizer["Striped"]</MudSwitch>
-            <MudSwitch @bind-Checked="@_bordered" Color="Color.Warning" Style="margin-left: 5px;">@_localizer["Bordered"]</MudSwitch>
-        </FooterContent>
         <PagerContent>
             <TablePager />
         </PagerContent>

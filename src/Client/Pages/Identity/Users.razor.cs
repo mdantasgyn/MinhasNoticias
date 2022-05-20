@@ -92,15 +92,15 @@ namespace MinhasNoticias.Client.Pages.Identity
                 MimeType = ApplicationConstants.MimeTypes.OpenXml
             });
             _snackBar.Add(string.IsNullOrWhiteSpace(_searchString)
-                ? _localizer["Users exported"]
-                : _localizer["Filtered Users exported"], Severity.Success);
+                ? _localizer["Usuários exportados"]
+                : _localizer["Usuários filtrados exportados"], Severity.Success);
         }
 
         private async Task InvokeModal()
         {
             var parameters = new DialogParameters();
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, DisableBackdropClick = true };
-            var dialog = _dialogService.Show<RegisterUserModal>(_localizer["Register New User"], parameters, options);
+            var dialog = _dialogService.Show<RegisterUserModal>(_localizer["Registrar novo usuário"], parameters, options);
             var result = await dialog.Result;
             if (!result.Cancelled)
             {
@@ -115,8 +115,7 @@ namespace MinhasNoticias.Client.Pages.Identity
 
         private void ManageRoles(string userId, string email)
         {
-            if (email == "admin@blazorstore.com") _snackBar.Add(_localizer["Not Allowed."], Severity.Error);
-            else _navigationManager.NavigateTo($"/identity/user-roles/{userId}");
+            _navigationManager.NavigateTo($"/identity/user-roles/{userId}");
         }
     }
 }

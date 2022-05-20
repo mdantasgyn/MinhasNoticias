@@ -16,7 +16,7 @@ namespace MinhasNoticias.Client.Pages.Identity
             var result = await _userManager.ForgotPasswordAsync(_emailModel);
             if (result.Succeeded)
             {
-                _snackBar.Add(_localizer["Done!"], Severity.Success);
+                _snackBar.Add(_localizer["Pronto!"], Severity.Success);
                 _navigationManager.NavigateTo("/");
             }
             else

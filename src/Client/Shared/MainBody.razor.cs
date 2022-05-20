@@ -66,17 +66,17 @@ namespace MinhasNoticias.Client.Shared
         {
             await _jsRuntime.InvokeAsync<object>("setRef", Reference);
             
-            OnInstallable = async () =>
-            {
-                var parameters = new DialogParameters();
-                var options = new DialogOptions() { CloseButton = false, NoHeader = true, MaxWidth = MaxWidth.Large, Position = DialogPosition.BottomCenter };
-                var dialog = _dialogService.Show<InstallApp>("", parameters, options);
-                var result = await dialog.Result;
-                if (!result.Cancelled)
-                {
-                    await _jsRuntime.InvokeVoidAsync("BlazorPWA.installPWA");
-                }
-            };
+            //OnInstallable = async () =>
+            //{
+            //    var parameters = new DialogParameters();
+            //    var options = new DialogOptions() { CloseButton = false, NoHeader = true, MaxWidth = MaxWidth.Large, Position = DialogPosition.BottomCenter };
+            //    var dialog = _dialogService.Show<InstallApp>("", parameters, options);
+            //    var result = await dialog.Result;
+            //    if (!result.Cancelled)
+            //    {
+            //        await _jsRuntime.InvokeVoidAsync("BlazorPWA.installPWA");
+            //    }
+            //};
 
             await LoadDataAsync();
 
@@ -112,14 +112,14 @@ namespace MinhasNoticias.Client.Shared
                     var token = await _authenticationManager.TryForceRefreshToken();
                     if (!string.IsNullOrEmpty(token))
                     {
-                        _snackBar.Add(_localizer["Refreshed Token."], Severity.Success);
+                        _snackBar.Add(_localizer["Token atualizado."], Severity.Success);
                         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    _snackBar.Add(_localizer["You are Logged Out."], Severity.Error);
+                    _snackBar.Add(_localizer["Você está desconectado."], Severity.Error);
                     await _authenticationManager.Logout();
                     _navigationManager.NavigateTo("/");
                 }
@@ -137,7 +137,7 @@ namespace MinhasNoticias.Client.Shared
                             var currentUserRolesResponse = await _userManager.GetRolesAsync(CurrentUserId);
                             if (currentUserRolesResponse.Succeeded && currentUserRolesResponse.Data.UserRoles.Any(x => x.RoleName == role.Name))
                             {
-                                _snackBar.Add(_localizer["You are logged out because the Permissions of one of your Roles have been updated."], Severity.Error);
+                                _snackBar.Add(_localizer["Você está desconectado porque as Permissões de uma de suas Funções foram atualizadas."], Severity.Error);
                                 await hubConnection.SendAsync(ApplicationConstants.SignalR.OnDisconnect, CurrentUserId);
                                 await _authenticationManager.Logout();
                                 _navigationManager.NavigateTo("/login");
@@ -153,7 +153,7 @@ namespace MinhasNoticias.Client.Shared
 
             await hubConnection.SendAsync(ApplicationConstants.SignalR.OnConnect, CurrentUserId);
 
-            _snackBar.Add(string.Format(_localizer["Welcome {0}"], FirstName), Severity.Success);
+            _snackBar.Add(string.Format(_localizer["Bem vindo {0}"], FirstName), Severity.Success);
         }
 
         private async Task LoadDataAsync()
@@ -180,7 +180,7 @@ namespace MinhasNoticias.Client.Shared
                 var currentUserResult = await _userManager.GetAsync(CurrentUserId);
                 if (!currentUserResult.Succeeded || currentUserResult.Data == null)
                 {
-                    _snackBar.Add(_localizer["You are logged out because the user with your Token has been deleted."], Severity.Error);
+                    _snackBar.Add(_localizer["Você está desconectado porque o usuário com seu Token foi excluído."], Severity.Error);
                     await _authenticationManager.Logout();
                 }
             }
@@ -195,7 +195,7 @@ namespace MinhasNoticias.Client.Shared
         {
             var parameters = new DialogParameters
             {
-                {nameof(Dialogs.Logout.ContentText), $"{_localizer["Logout Confirmation"]}"},
+                {nameof(Dialogs.Logout.ContentText), $"{_localizer["Confirmar logout?"]}"},
                 {nameof(Dialogs.Logout.ButtonText), $"{_localizer["Logout"]}"},
                 {nameof(Dialogs.Logout.Color), Color.Error},
                 {nameof(Dialogs.Logout.CurrentUserId), CurrentUserId},
@@ -217,18 +217,18 @@ namespace MinhasNoticias.Client.Shared
         [JSInvokable("ShowUpdateVersion")]
         public Task ShowUpdateVersion()
         {
-            _snackBar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
-            var message = "New version available.";
-            _snackBar.Add(message, Severity.Info, config =>
-            {
-                config.RequireInteraction = true;
-                config.ShowCloseIcon = false;
-                config.Action = _localizer["UPDATE?"];
-                config.Onclick = async (snackbar) =>
-                {
-                    await _jsRuntime.InvokeVoidAsync("MinhasNoticias.onUserUpdate");
-                };
-            });
+            //_snackBar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
+            //var message = "New version available.";
+            //_snackBar.Add(message, Severity.Info, config =>
+            //{
+            //    config.RequireInteraction = true;
+            //    config.ShowCloseIcon = false;
+            //    config.Action = _localizer["UPDATE?"];
+            //    config.Onclick = async (snackbar) =>
+            //    {
+            //        await _jsRuntime.InvokeVoidAsync("MinhasNoticias.onUserUpdate");
+            //    };
+            //});
             return Task.CompletedTask;
         }
 

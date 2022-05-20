@@ -22,20 +22,20 @@
                                     </MudItem>
                                     <MudItem xs="12">
                                         <div class="d-flex justify-center">
-                                            <MudText Typo="Typo.subtitle2" Class="mb-n4" >@_localizer["Enter email for password reset"]</MudText>
+                                            <MudText Typo="Typo.subtitle2" Class="mb-n4" >@_localizer["Digite o e-mail para redefinição de senha"]</MudText>
                                         </div>
                                     </MudItem>
                                     <MudItem xs="12">
                                         <MudTextField Label="@_localizer["E-mail"]" @bind-Value="_emailModel.Email" For="@(() => _emailModel.Email)" Margin="Margin.Dense" AdornmentColor="Color.Primary" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Lock" Variant="Variant.Filled"></MudTextField>
                                     </MudItem>
                                     <MudItem xs="12" Class="d-flex justify-center">
-                                        <MudButton Variant="Variant.Filled" Disabled="@(!Validated)" Color="Color.Primary" Size="Size.Large" ButtonType="ButtonType.Submit" FullWidth="true">@_localizer["Reset Password"]</MudButton>
+                                        <MudButton Variant="Variant.Filled" Disabled="@(!Validated)" Color="Color.Primary" Size="Size.Large" ButtonType="ButtonType.Submit" FullWidth="true">@_localizer["Redefinir senha"]</MudButton>
                                     </MudItem>
                                 </MudGrid>
                             </EditForm>
                                 <div class="d-flex flex-row justify-center mt-5">
-                                    <MudText Class="align-self-center mr-2" Color="Color.Inherit" Align="Align.Center" Typo="Typo.body2">@_localizer["Back to"]</MudText>
-                                    <MudLink Href="/login" Underline="Underline.Hover" Color="Color.Primary" Typo="Typo.body2">@_localizer["Sign In"]</MudLink>
+                                    <MudText Class="align-self-center mr-2" Color="Color.Inherit" Align="Align.Center" Typo="Typo.body2">@_localizer["De volta a"]</MudText>
+                                    <MudLink Href="/login" Underline="Underline.Hover" Color="Color.Primary" Typo="Typo.body2">@_localizer["Entrar"]</MudLink>
                                 </div>
                 </MudPaper>
             </MudContainer>
