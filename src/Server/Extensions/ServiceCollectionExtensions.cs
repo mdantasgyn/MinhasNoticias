@@ -69,7 +69,7 @@ namespace MinhasNoticias.Server.Extensions
                 if (preference != null)
                     culture = new CultureInfo(preference.LanguageCode);
                 else
-                    culture = new CultureInfo(LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US");
+                    culture = new CultureInfo(LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "pt-BR");
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
                 CultureInfo.CurrentCulture = culture;

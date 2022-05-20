@@ -6,7 +6,7 @@ namespace MinhasNoticias.Server.Settings
 {
     public record ServerPreference : IPreference
     {
-        public string LanguageCode { get; set; } = LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US";
+        public string LanguageCode { get; set; } = LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "pt-BR";
 
         //TODO - add server preferences
     }

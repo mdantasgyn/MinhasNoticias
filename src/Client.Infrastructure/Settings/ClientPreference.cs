@@ -11,6 +11,6 @@ namespace MinhasNoticias.Client.Infrastructure.Settings
         public bool IsDrawerOpen { get; set; }
         public string PrimaryColor { get; set; }
         public bool IsFirstVisit { get; set; } = true;
-        public string LanguageCode { get; set; } = LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "en-US";
+        public string LanguageCode { get; set; } = LocalizationConstants.SupportedLanguages.FirstOrDefault()?.Code ?? "pt-BR";
     }
 }

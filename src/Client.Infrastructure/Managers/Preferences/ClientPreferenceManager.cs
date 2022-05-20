@@ -98,7 +98,7 @@ namespace MinhasNoticias.Client.Infrastructure.Managers.Preferences
         public async Task<string> LanguageCode()
         {
             var preference = await GetPreference() as ClientPreference;
-            return preference != null ? preference.LanguageCode : "en-US";
+            return preference != null ? preference.LanguageCode : "pt-BR";
         }
         public async Task<bool> IsFirstVisit()
         {
