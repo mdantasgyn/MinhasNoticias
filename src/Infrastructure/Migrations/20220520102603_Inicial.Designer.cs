@@ -12,7 +12,7 @@ using MinhasNoticias.Infrastructure.Contexts;
 namespace MinhasNoticias.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220518140905_Inicial")]
+    [Migration("20220520102603_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,85 +132,6 @@ namespace MinhasNoticias.Infrastructure.Migrations
                     b.HasIndex("ToUserId");
 
                     b.ToTable("ChatHistory", (string)null);
-                });
-
-            modelBuilder.Entity("MinhasNoticias.Domain.Entities.Catalog.Brand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Tax")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brands");
-                });
-
-            modelBuilder.Entity("MinhasNoticias.Domain.Entities.Catalog.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Barcode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageDataURL")
-                        .HasColumnType("text");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("MinhasNoticias.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
@@ -626,17 +547,6 @@ namespace MinhasNoticias.Infrastructure.Migrations
                     b.Navigation("FromUser");
 
                     b.Navigation("ToUser");
-                });
-
-            modelBuilder.Entity("MinhasNoticias.Domain.Entities.Catalog.Product", b =>
-                {
-                    b.HasOne("MinhasNoticias.Domain.Entities.Catalog.Brand", "Brand")
-                        .WithMany()
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brand");
                 });
 
             modelBuilder.Entity("MinhasNoticias.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
