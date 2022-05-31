@@ -9,7 +9,7 @@
     }
 </style>
 
-<AppTitle Title="@_localizer["Audit Trails"]" Description="@_localizer["Your Recent Activities."]" />
+<AppTitle Title="@_localizer["Auditoria"]" Description="@_localizer["Suas atividades recentes."]" />
 @if (!_loaded)
 {
     <Spinner />
@@ -20,7 +20,7 @@ else
         <div class="mb-3">
             @if (_canExportAuditTrails)
                 {
-                    <MudButton DisableElevation IconColor="Color.Surface" Variant="Variant.Filled" OnClick="ExportToExcelAsync" StartIcon="@Icons.Custom.FileFormats.FileExcel" Color="Color.Success" Size="Size.Small">@_localizer["Export To Excel"]</MudButton>
+                    <MudButton DisableElevation IconColor="Color.Surface" Variant="Variant.Filled" OnClick="ExportToExcelAsync" StartIcon="@Icons.Custom.FileFormats.FileExcel" Color="Color.Success" Size="Size.Small">@_localizer["Exportar para Excel"]</MudButton>
                 }
         </div>
     </MudHidden>
@@ -30,7 +30,7 @@ else
                 <div class="justify-center mud-text-align-center">
                 @if (_canExportAuditTrails)
                 {
-                    <MudButton DisableElevation IconColor="Color.Surface" Variant="Variant.Filled" OnClick="ExportToExcelAsync" StartIcon="@Icons.Custom.FileFormats.FileExcel" Color="Color.Success">@_localizer["Export To Excel"]</MudButton>
+                    <MudButton DisableElevation IconColor="Color.Surface" Variant="Variant.Filled" OnClick="ExportToExcelAsync" StartIcon="@Icons.Custom.FileFormats.FileExcel" Color="Color.Success">@_localizer["Exportar para Excel"]</MudButton>
                 }
             </div>
             </MudHidden>
@@ -38,7 +38,7 @@ else
             <MudSpacer />
             @if (_canSearchAuditTrails)
             {
-                <MudTextField @bind-Value="_searchString" Immediate="true" Placeholder="@_localizer["Search for Trails"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
+                <MudTextField @bind-Value="_searchString" Immediate="true" Placeholder="@_localizer["Pesquisar trilhas"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
             }
         </ToolBarContent>
         <HeaderContent>
@@ -46,25 +46,25 @@ else
                 {
                 <MudTHeadRow IgnoreCheckbox="true">
                     <MudTh colspan="2">
-                        <MudDateRangePicker @ref="_dateRangePicker" PickerVariant="PickerVariant.Dialog" Label="@_localizer["Date Range For Searching"]" @bind-DateRange="_dateRange">
+                        <MudDateRangePicker @ref="_dateRangePicker" PickerVariant="PickerVariant.Dialog" Label="@_localizer["Intervalo de datas para pesquisa"]" @bind-DateRange="_dateRange">
                             <PickerActions>
-                                <MudButton Class="mr-auto align-self-start" OnClick="@(() => _dateRangePicker.Clear())">@_localizer["Clear"]</MudButton>
-                                <MudButton OnClick="@(() => _dateRangePicker.Close(false))">@_localizer["Cancel"]</MudButton>
+                                <MudButton Class="mr-auto align-self-start" OnClick="@(() => _dateRangePicker.Clear())">@_localizer["Limpar"]</MudButton>
+                                <MudButton OnClick="@(() => _dateRangePicker.Close(false))">@_localizer["Cancelar"]</MudButton>
                                 <MudButton Color="Color.Primary" OnClick="@(() => _dateRangePicker.Close())">@_localizer["Ok"]</MudButton>
                             </PickerActions>
                         </MudDateRangePicker>
                     </MudTh>
                     <MudTh colspan="3" Style="text-align: right">
-                        <MudSwitch @bind-Checked="@_searchInOldValues" Color="Color.Primary" Style="margin-left: 5px;">@_localizer["Search in Old Values"]</MudSwitch>
-                        <MudSwitch @bind-Checked="@_searchInNewValues" Color="Color.Primary" Style="margin-left: 5px;">@_localizer["Search in New Values"]</MudSwitch>
+                        <MudSwitch @bind-Checked="@_searchInOldValues" Color="Color.Primary" Style="margin-left: 5px;">@_localizer["Pesquisar em valores antigos"]</MudSwitch>
+                        <MudSwitch @bind-Checked="@_searchInNewValues" Color="Color.Primary" Style="margin-left: 5px;">@_localizer["Pesquisar em novos valores"]</MudSwitch>
                     </MudTh>
                 </MudTHeadRow>
                 }
             <MudTHeadRow IgnoreCheckbox="true">
                 <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.Id)">@_localizer["Id"]</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.TableName)">@_localizer["Table Name"]</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.DateTime)">@_localizer["Date"]</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.Type)">@_localizer["Type"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.TableName)">@_localizer["Nome da Tabela"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.DateTime)">@_localizer["Data"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<RelatedAuditTrail, object>(x => x.Type)">@_localizer["Tipo"]</MudTableSortLabel></MudTh>
                 <MudTh Style="text-align: right"></MudTh>
             </MudTHeadRow>
         </HeaderContent>
@@ -83,7 +83,7 @@ else
             </MudTd>
             <MudTd DataLabel="Tax">@context.Type</MudTd>
             <MudTd Style="text-align:right">
-                <MudButton Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" OnClick="@(() => ShowBtnPress(context.Id))">@((context.ShowDetails == true)? _localizer["Hide"] : _localizer["Show"]) @_localizer["Trail Details"]</MudButton>
+                <MudButton Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" OnClick="@(() => ShowBtnPress(context.Id))">@((context.ShowDetails == true)? _localizer["Esconder"] : _localizer["Mostrar"]) @_localizer["Detalhar"]</MudButton>
             </MudTd>
         </RowTemplate>
         <ChildRowContent>
@@ -94,7 +94,7 @@ else
                         <MudCard Elevation="25">
                             <MudCardHeader>
                                 <CardHeaderContent>
-                                    <MudAlert Severity="Severity.Info" Typo="Typo.body1">@_localizer["Details for Trail ID"] : <strong>@context.Id</strong></MudAlert>
+                                    <MudAlert Severity="Severity.Info" Typo="Typo.body1">@_localizer["Detalhes do ID"] : <strong>@context.Id</strong></MudAlert>
                                 </CardHeaderContent>
                             </MudCardHeader>
                             <MudCardContent>
@@ -103,7 +103,7 @@ else
                                         @if (!string.IsNullOrEmpty(context.AffectedColumns))
                                             {
                                             <tr class="mud-table-row" style="padding:10px!important">
-                                                <td>@_localizer["Columns Affected"]</td>
+                                                <td>@_localizer["Colunas afetadas"]</td>
                                                 <td>
                                                     <MudItem>
                                                         @foreach (var column in context.AffectedColumns.Trim('[').Trim(']').Split(','))
@@ -115,7 +115,7 @@ else
                                             </tr>
                                             }
                                         <tr class="mud-table-row">
-                                            <td>@_localizer["Primary Key"]</td>
+                                            <td>@_localizer["Chave Primaria"]</td>
                                             <td>
                                                 <MudItem>
                                                     <MudChip Label="true" Color="Color.Surface">@context.PrimaryKey.Trim('{').Trim('}').Replace('"', ' ').Trim()</MudChip>
@@ -126,7 +126,7 @@ else
                                         @if (!string.IsNullOrEmpty(context.OldValues))
                                             {
                                             <tr class="mud-table-row">
-                                                <td>@_localizer["Old Values"]</td>
+                                                <td>@_localizer["Valores antigo"]</td>
                                                 <td>
 
                                                     <MudItem>
@@ -150,7 +150,7 @@ else
                                         @if (!string.IsNullOrEmpty(context.NewValues))
                                             {
                                             <tr class="mud-table-row">
-                                                <td>@_localizer["New Values"]</td>
+                                                <td>@_localizer["Novos valores"]</td>
                                                 <td>
 
                                                     <MudItem>
@@ -178,12 +178,12 @@ else
                     </td>
                 </MudTr>}
         </ChildRowContent>
-        <FooterContent>
+@*        <FooterContent>
             <MudSwitch @bind-Checked="@_dense" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Dense"]</MudSwitch>
             <MudSwitch @bind-Checked="@_striped" Color="Color.Tertiary" Style="margin-left: 5px;">@_localizer["Striped"]</MudSwitch>
             <MudSwitch @bind-Checked="@_bordered" Color="Color.Warning" Style="margin-left: 5px;">@_localizer["Bordered"]</MudSwitch>
         </FooterContent>
-        <PagerContent>
+*@        <PagerContent>
             <TablePager />
         </PagerContent>
     </MudTable>

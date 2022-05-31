@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Files\Images\ProfilePictures\" />
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 
 </Project>

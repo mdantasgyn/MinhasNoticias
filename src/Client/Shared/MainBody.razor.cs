@@ -195,8 +195,8 @@ namespace MinhasNoticias.Client.Shared
         {
             var parameters = new DialogParameters
             {
-                {nameof(Dialogs.Logout.ContentText), $"{_localizer["Confirmar logout?"]}"},
-                {nameof(Dialogs.Logout.ButtonText), $"{_localizer["Logout"]}"},
+                {nameof(Dialogs.Logout.ContentText), $"{_localizer["Confirmar saída?"]}"},
+                {nameof(Dialogs.Logout.ButtonText), $"{_localizer["Sair"]}"},
                 {nameof(Dialogs.Logout.Color), Color.Error},
                 {nameof(Dialogs.Logout.CurrentUserId), CurrentUserId},
                 {nameof(Dialogs.Logout.HubConnection), hubConnection}
@@ -204,7 +204,7 @@ namespace MinhasNoticias.Client.Shared
 
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
 
-            _dialogService.Show<Dialogs.Logout>(_localizer["Logout"], parameters, options);
+            _dialogService.Show<Dialogs.Logout>(_localizer["Sair"], parameters, options);
         }
         
         [JSInvokable("PWAInstallable")]

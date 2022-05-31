@@ -134,8 +134,8 @@ namespace MinhasNoticias.Client.Pages.Utilities
                     MimeType = ApplicationConstants.MimeTypes.OpenXml
                 });
                 _snackBar.Add(string.IsNullOrWhiteSpace(_searchString)
-                    ? _localizer["Audit Trails exported"]
-                    : _localizer["Filtered Audit Trails exported"], Severity.Success);
+                    ? _localizer["Auditoria exportadas"]
+                    : _localizer["Auditoria filtrada exportadas"], Severity.Success);
             }
             else
             {

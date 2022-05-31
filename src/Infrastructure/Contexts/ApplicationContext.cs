@@ -2,7 +2,6 @@
 using MinhasNoticias.Application.Models.Chat;
 using MinhasNoticias.Infrastructure.Models.Identity;
 using MinhasNoticias.Domain.Contracts;
-using MinhasNoticias.Domain.Entities.Catalog;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;

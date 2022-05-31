@@ -138,137 +138,137 @@ namespace MinhasNoticias.Shared.Constants.Permission
 
 
 
-        [DisplayName("Products")]
-        [Description("Products Permissions")]
-        public static class Products
-        {
-            public const string View = "Permissions.Products.View";
-            public const string Create = "Permissions.Products.Create";
-            public const string Edit = "Permissions.Products.Edit";
-            public const string Delete = "Permissions.Products.Delete";
-            public const string Export = "Permissions.Products.Export";
-            public const string Search = "Permissions.Products.Search";
-        }
+        //[DisplayName("Products")]
+        //[Description("Products Permissions")]
+        //public static class Products
+        //{
+        //    public const string View = "Permissions.Products.View";
+        //    public const string Create = "Permissions.Products.Create";
+        //    public const string Edit = "Permissions.Products.Edit";
+        //    public const string Delete = "Permissions.Products.Delete";
+        //    public const string Export = "Permissions.Products.Export";
+        //    public const string Search = "Permissions.Products.Search";
+        //}
 
-        [DisplayName("Brands")]
-        [Description("Brands Permissions")]
-        public static class Brands
-        {
-            public const string View = "Permissions.Brands.View";
-            public const string Create = "Permissions.Brands.Create";
-            public const string Edit = "Permissions.Brands.Edit";
-            public const string Delete = "Permissions.Brands.Delete";
-            public const string Export = "Permissions.Brands.Export";
-            public const string Search = "Permissions.Brands.Search";
-            public const string Import = "Permissions.Brands.Import";
-        }
+        //[DisplayName("Brands")]
+        //[Description("Brands Permissions")]
+        //public static class Brands
+        //{
+        //    public const string View = "Permissions.Brands.View";
+        //    public const string Create = "Permissions.Brands.Create";
+        //    public const string Edit = "Permissions.Brands.Edit";
+        //    public const string Delete = "Permissions.Brands.Delete";
+        //    public const string Export = "Permissions.Brands.Export";
+        //    public const string Search = "Permissions.Brands.Search";
+        //    public const string Import = "Permissions.Brands.Import";
+        //}
 
-        [DisplayName("Documents")]
-        [Description("Documents Permissions")]
+        [DisplayName("Documentos")]
+        [Description("Permissões para Documentos")]
         public static class Documents
         {
-            public const string View = "Permissions.Documents.View";
-            public const string Create = "Permissions.Documents.Create";
-            public const string Edit = "Permissions.Documents.Edit";
-            public const string Delete = "Permissions.Documents.Delete";
-            public const string Search = "Permissions.Documents.Search";
+            public const string View = "Permissoes.Documents.View";
+            public const string Create = "Permissoes.Documents.Create";
+            public const string Edit = "Permissoes.Documents.Edit";
+            public const string Delete = "Permissoes.Documents.Delete";
+            public const string Search = "Permissoes.Documents.Search";
         }
 
-        [DisplayName("Document Types")]
-        [Description("Document Types Permissions")]
+        [DisplayName("Tipos de Documentos")]
+        [Description("Permissões de tipos de documentos")]
         public static class DocumentTypes
         {
-            public const string View = "Permissions.DocumentTypes.View";
-            public const string Create = "Permissions.DocumentTypes.Create";
-            public const string Edit = "Permissions.DocumentTypes.Edit";
-            public const string Delete = "Permissions.DocumentTypes.Delete";
-            public const string Export = "Permissions.DocumentTypes.Export";
-            public const string Search = "Permissions.DocumentTypes.Search";
+            public const string View = "Permissoes.DocumentTypes.View";
+            public const string Create = "Permissoes.DocumentTypes.Create";
+            public const string Edit = "Permissoes.DocumentTypes.Edit";
+            public const string Delete = "Permissoes.DocumentTypes.Delete";
+            public const string Export = "Permissoes.DocumentTypes.Export";
+            public const string Search = "Permissoes.DocumentTypes.Search";
         }
 
-        [DisplayName("Document Extended Attributes")]
-        [Description("Document Extended Attributes Permissions")]
+        [DisplayName("Atributos Estendidos do Documento")]
+        [Description("Permissões de Atributos Estendidos do Documento")]
         public static class DocumentExtendedAttributes
         {
-            public const string View = "Permissions.DocumentExtendedAttributes.View";
-            public const string Create = "Permissions.DocumentExtendedAttributes.Create";
-            public const string Edit = "Permissions.DocumentExtendedAttributes.Edit";
-            public const string Delete = "Permissions.DocumentExtendedAttributes.Delete";
-            public const string Export = "Permissions.DocumentExtendedAttributes.Export";
-            public const string Search = "Permissions.DocumentExtendedAttributes.Search";
+            public const string View = "Permissoes.DocumentExtendedAttributes.View";
+            public const string Create = "Permissoes.DocumentExtendedAttributes.Create";
+            public const string Edit = "Permissoes.DocumentExtendedAttributes.Edit";
+            public const string Delete = "Permissoes.DocumentExtendedAttributes.Delete";
+            public const string Export = "Permissoes.DocumentExtendedAttributes.Export";
+            public const string Search = "Permissoes.DocumentExtendedAttributes.Search";
         }
 
-        [DisplayName("Users")]
-        [Description("Users Permissions")]
+        [DisplayName("Usuarios")]
+        [Description("Permissões de usuários")]
         public static class Users
         {
-            public const string View = "Permissions.Users.View";
-            public const string Create = "Permissions.Users.Create";
-            public const string Edit = "Permissions.Users.Edit";
-            public const string Delete = "Permissions.Users.Delete";
-            public const string Export = "Permissions.Users.Export";
-            public const string Search = "Permissions.Users.Search";
+            public const string View = "Permissoes.Users.View";
+            public const string Create = "Permissoes.Users.Create";
+            public const string Edit = "Permissoes.Users.Edit";
+            public const string Delete = "Permissoes.Users.Delete";
+            public const string Export = "Permissoes.Users.Export";
+            public const string Search = "Permissoes.Users.Search";
         }
 
-        [DisplayName("Roles")]
-        [Description("Roles Permissions")]
+        [DisplayName("Funções")]
+        [Description("Permissões de funções")]
         public static class Roles
         {
-            public const string View = "Permissions.Roles.View";
-            public const string Create = "Permissions.Roles.Create";
-            public const string Edit = "Permissions.Roles.Edit";
-            public const string Delete = "Permissions.Roles.Delete";
-            public const string Search = "Permissions.Roles.Search";
+            public const string View = "Permissoes.Roles.View";
+            public const string Create = "Permissoes.Roles.Create";
+            public const string Edit = "Permissoes.Roles.Edit";
+            public const string Delete = "Permissoes.Roles.Delete";
+            public const string Search = "Permissoes.Roles.Search";
         }
 
-        [DisplayName("Role Claims")]
-        [Description("Role Claims Permissions")]
+        [DisplayName("Reivindicações de função")]
+        [Description("Permissões de Reivindicações de Função")]
         public static class RoleClaims
         {
-            public const string View = "Permissions.RoleClaims.View";
-            public const string Create = "Permissions.RoleClaims.Create";
-            public const string Edit = "Permissions.RoleClaims.Edit";
-            public const string Delete = "Permissions.RoleClaims.Delete";
-            public const string Search = "Permissions.RoleClaims.Search";
+            public const string View = "Permissoes.RoleClaims.View";
+            public const string Create = "Permissoes.RoleClaims.Create";
+            public const string Edit = "Permissoes.RoleClaims.Edit";
+            public const string Delete = "Permissoes.RoleClaims.Delete";
+            public const string Search = "Permissoes.RoleClaims.Search";
         }
 
-        [DisplayName("Communication")]
-        [Description("Communication Permissions")]
+        [DisplayName("Comunicação")]
+        [Description("Permissões de comunicação")]
         public static class Communication
         {
-            public const string Chat = "Permissions.Communication.Chat";
+            public const string Chat = "Permissoes.Communication.Chat";
         }
 
-        [DisplayName("Preferences")]
-        [Description("Preferences Permissions")]
+        [DisplayName("Preferências")]
+        [Description("Permissões de preferências")]
         public static class Preferences
         {
-            public const string ChangeLanguage = "Permissions.Preferences.ChangeLanguage";
+            public const string ChangeLanguage = "Permissoes.Preferences.ChangeLanguage";
 
             //TODO - add permissions
         }
 
         [DisplayName("Dashboards")]
-        [Description("Dashboards Permissions")]
+        [Description("Permissões para Dashboards/Painéis")]
         public static class Dashboards
         {
-            public const string View = "Permissions.Dashboards.View";
+            public const string View = "Permissoes.Dashboards.View";
         }
 
         [DisplayName("Hangfire")]
-        [Description("Hangfire Permissions")]
+        [Description("Permissoes para Hangfire")]
         public static class Hangfire
         {
-            public const string View = "Permissions.Hangfire.View";
+            public const string View = "Permissoes.Hangfire.View";
         }
 
-        [DisplayName("Audit Trails")]
-        [Description("Audit Trails Permissions")]
+        [DisplayName("Auditoria")]
+        [Description("Permissões para Auditoria")]
         public static class AuditTrails
         {
-            public const string View = "Permissions.AuditTrails.View";
-            public const string Export = "Permissions.AuditTrails.Export";
-            public const string Search = "Permissions.AuditTrails.Search";
+            public const string View = "Permissoes.AuditTrails.View";
+            public const string Export = "Permissoes.AuditTrails.Export";
+            public const string Search = "Permissoes.AuditTrails.Search";
         }
 
         /// <summary>

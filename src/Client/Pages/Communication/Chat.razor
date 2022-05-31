@@ -1,7 +1,7 @@
 ﻿@page "/chat/{CId}"
 @page "/chat"
 @using System.Globalization
-@attribute [Authorize(Policy = Permissions.Communication.Chat)]
+@*@attribute [Authorize(Policy = Permissions.Communication.Chat)]*@
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Chat> _localizer
 
 <div class="d-flex flex-grow-1 flex-row">
